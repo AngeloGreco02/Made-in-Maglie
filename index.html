@@ -3,1161 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-content="Made in Maglie: la vetrina digitale delle attività locali di Maglie.">
-
+  <link rel="icon" type="image/png" href="logo.png">
+<meta name="description" content="Made in Maglie: la vetrina digitale delle attività locali di Maglie.">
 <title>Made in Maglie — Scegli locale, vivi Maglie</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
-
-:root{
-  --blue:#102f57;
-  --gold:#c59a48;
-  --cream:#f7f3ec;
-  --ink:#162235;
-  --muted:#667085;
-  --white:#fff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--cream);
-  color:var(--ink);
-  font-family:"DM Sans",sans-serif;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* HEADER */
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(247,243,236,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(16,47,87,.1);
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:12px 5vw;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:700;
-  color:var(--blue);
-}
-
-.brand img{
-  width:58px;
-  height:58px;
-  object-fit:cover;
-  border-radius:50%;
-}
-
-.nav-links{
-  display:flex;
-  gap:26px;
-  align-items:center;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:var(--gold);
-}
-
-.nav-cta{
-  padding:11px 17px;
-  background:var(--blue);
-  color:#fff!important;
-  border-radius:999px;
-}
-
-/* HERO */
-
-.hero{
-  max-width:1200px;
-  margin:auto;
-
-  padding:70px 5vw 45px;
-
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-
-  gap:45px;
-  align-items:center;
-}
-
-.eyebrow{
-  color:var(--gold);
-  font-weight:700;
-  letter-spacing:.13em;
-  font-size:.78rem;
-}
-
-h1,
-h2{
-  font-family:Fraunces,serif;
-  color:var(--blue);
-  line-height:1.02;
-}
-
-h1{
-  font-size:clamp(3rem,6vw,5.8rem);
-  margin:15px 0 25px;
-}
-
-h1 em,
-h2 em{
-  color:var(--gold);
-  font-style:normal;
-}
-
-.hero-intro{
-  font-size:1.12rem;
-  line-height:1.7;
-  max-width:650px;
-  color:#4c586b;
-}
-
-.hero-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:28px 0;
-}
-
-.button{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-
-  padding:14px 20px;
-
-  border-radius:999px;
-  font-weight:700;
-}
-
-.button-primary{
-  background:var(--blue);
-  color:#fff;
-}
-
-.button-secondary{
-  border:1px solid var(--blue);
-  color:var(--blue);
-}
-
-.hero-logo{
-  display:flex;
-  justify-content:center;
-}
-
-.hero-logo img{
-  width:min(430px,90%);
-  border-radius:50%;
-  box-shadow:0 24px 60px rgba(16,47,87,.16);
-}
-
-/* SEZIONI */
-
-.section-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:75px 5vw;
-}
-
-.section-heading{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-  align-items:end;
-
-  margin-bottom:35px;
-}
-
-.section-heading h2{
-  font-size:clamp(2.3rem,4vw,4rem);
-  margin:8px 0;
-}
-
-.section-heading p{
-  max-width:440px;
-  line-height:1.7;
-  color:var(--muted);
-}
-
-/* CATEGORIE */
-
-.categories{
-  background:var(--blue);
-  color:#fff;
-}
-
-.categories h2{
-  color:#fff;
-}
-
-.heading-light p{
-  color:#d4dbe5;
-}
-
-/* FILTRI */
-
-.filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-
-  margin:0 0 28px;
-}
-
-.filter{
-  border:1px solid rgba(255,255,255,.25);
-  background:transparent;
-  color:#fff;
-
-  padding:10px 15px;
-
-  border-radius:999px;
-
-  cursor:pointer;
-
-  font:inherit;
-}
-
-.filter.active,
-.filter:hover{
-  background:var(--gold);
-  border-color:var(--gold);
-  color:#fff;
-}
-
-/* RICERCA */
-
-.search{
-  width:100%;
-
-  padding:15px 18px;
-
-  border:1px solid rgba(255,255,255,.25);
-
-  background:rgba(255,255,255,.08);
-
-  color:#fff;
-
-  border-radius:14px;
-
-  margin-bottom:18px;
-
-  font:inherit;
-  outline:none;
-}
-
-.search::placeholder{
-  color:#cbd5e1;
-}
-
-/* ATTIVITÀ */
-
-.business-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.business-card{
-  background:#fff;
-  color:var(--ink);
-
-  border-radius:20px;
-
-  padding:24px;
-
-  display:flex;
-  flex-direction:column;
-
-  min-height:225px;
-
-  transition:.2s;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
-
-.business-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(0,0,0,.14);
-}
-
-.badge{
-  color:var(--gold);
-
-  font-weight:700;
-
-  font-size:.78rem;
-
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-}
-
-.business-card h3{
-  font-family:Fraunces,serif;
-
-  font-size:1.55rem;
-
-  color:var(--blue);
-
-  margin:10px 0;
-}
-
-.address{
-  color:var(--muted);
-
-  line-height:1.5;
-
-  font-size:.92rem;
-
-  margin-bottom:20px;
-}
-
-.card-link{
-  margin-top:auto;
-
-  display:inline-flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  color:var(--blue);
-
-  font-weight:700;
-}
-
-/* PARTECIPA */
-
-.intro-grid{
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:20px;
-}
-
-.info{
-  padding:28px;
-
-  border:1px solid rgba(16,47,87,.1);
-
-  border-radius:18px;
-
-  background:#fff;
-}
-
-.info .number{
-  color:var(--gold);
-
-  font-weight:700;
-}
-
-.info h3{
-  color:var(--blue);
-}
-
-/* CONTATTI */
-
-.contact-section{
-  background:#102f57;
-  color:#fff;
-}
-
-.contact-section h2{
-  color:#fff;
-
-  font-size:clamp(2.4rem,5vw,4.5rem);
-}
-
-.contact-section p{
-  color:#d4dbe5;
-
-  max-width:650px;
-
-  line-height:1.7;
-}
-
-/* FOOTER */
-
-footer{
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:20px;
-
-  padding:25px 5vw;
-
-  background:#0c2341;
-
-  color:#fff;
-}
-
-footer .brand{
-  color:#fff;
-}
-
-.empty{
-  grid-column:1/-1;
-
-  text-align:center;
-
-  padding:40px;
-
-  color:#d4dbe5;
-}
-
-/* RESPONSIVE */
-
+:root{--blue:#102f57;--gold:#c59a48;--cream:#f7f3ec;--ink:#162235;--muted:#667085;--white:#fff;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(247,243,236,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(16,47,87,.1);display:flex;align-items:center;justify-content:space-between;padding:12px 5vw}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--blue)}
+.brand img{width:58px;height:58px;object-fit:cover;border-radius:50%}
+.nav-links{display:flex;gap:26px;align-items:center;font-weight:600}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:11px 17px;background:var(--blue);color:#fff!important;border-radius:999px}
+.hero{max-width:1200px;margin:auto;padding:70px 5vw 45px;display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.13em;font-size:.78rem}
+h1,h2{font-family:Fraunces,serif;color:var(--blue);line-height:1.02}
+h1{font-size:clamp(3rem,6vw,5.8rem);margin:15px 0 25px}
+h1 em,h2 em{color:var(--gold);font-style:normal}
+.hero-intro{font-size:1.12rem;line-height:1.7;max-width:650px;color:#4c586b}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.button{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;font-weight:700}
+.button-primary{background:var(--blue);color:#fff}
+.button-secondary{border:1px solid var(--blue);color:var(--blue)}
+.hero-logo{display:flex;justify-content:center}
+.hero-logo img{width:min(430px,90%);border-radius:50%;box-shadow:0 24px 60px rgba(16,47,87,.16)}
+.section-wrap{max-width:1200px;margin:auto;padding:75px 5vw}
+.section-heading{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:35px}
+.section-heading h2{font-size:clamp(2.3rem,4vw,4rem);margin:8px 0}
+.section-heading p{max-width:440px;line-height:1.7;color:var(--muted)}
+.categories{background:var(--blue);color:#fff}
+.categories h2{color:#fff}
+.heading-light p{color:#d4dbe5}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 28px}
+.filter{border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;padding:10px 15px;border-radius:999px;cursor:pointer;font:inherit}
+.filter.active,.filter:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.search{width:100%;padding:15px 18px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:14px;margin-bottom:18px;font:inherit;outline:none}
+.search::placeholder{color:#cbd5e1}
+.business-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.business-card{background:#fff;color:var(--ink);border-radius:20px;padding:24px;display:flex;flex-direction:column;min-height:225px;transition:.2s;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.business-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.14)}
+.badge{color:var(--gold);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.business-card h3{font-family:Fraunces,serif;font-size:1.55rem;color:var(--blue);margin:10px 0}
+.address{color:var(--muted);line-height:1.5;font-size:.92rem;margin-bottom:20px}
+.card-link{margin-top:auto;display:inline-flex;justify-content:space-between;align-items:center;color:var(--blue);font-weight:700}
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.info{padding:28px;border:1px solid rgba(16,47,87,.1);border-radius:18px;background:#fff}
+.info .number{color:var(--gold);font-weight:700}
+.info h3{color:var(--blue)}
+.contact-section{background:#102f57;color:#fff}
+.contact-section h2{color:#fff;font-size:clamp(2.4rem,5vw,4.5rem)}
+.contact-section p{color:#d4dbe5;max-width:650px;line-height:1.7}
+footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:25px 5vw;background:#0c2341;color:#fff}
+footer .brand{color:#fff}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:#d4dbe5}
 @media(max-width:850px){
-
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:45px;
-  }
-
-  .business-grid,
-  .intro-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .section-heading{
-    display:block;
-  }
-
-  .nav-links{
-    display:none;
-  }
+.hero{grid-template-columns:1fr;padding-top:45px}
+.business-grid,.intro-grid{grid-template-columns:1fr 1fr}
+.section-heading{display:block}
+.nav-links{display:none}
 }
-
 @media(max-width:560px){
-
-  .business-grid,
-  .intro-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-logo img{
-    width:75%;
-  }
-
-  footer{
-    flex-direction:column;
-  }
+.business-grid,.intro-grid{grid-template-columns:1fr}
+.hero-logo img{width:75%}
+footer{flex-direction:column}
 }
 </style>
 </head>
-
-
 <body>
-
 <header class="site-header">
-
-<a class="brand" href="#top">
-
-<img
-src="data:image/png;base64,INSERISCI_QUI_IL_LOGO_BASE64"
-alt="Logo Made in Maglie"
->
-
-<span>Made in Maglie</span>
-
-</a>
-
-
+<a class="brand" href="#top"><img src="logo.png" alt="Logo Made in Maglie"><span>Made in Maglie</span></a>
 <nav class="nav-links" aria-label="Navigazione principale">
-
-<a href="#attivita">Attività</a>
-
-<a href="#categorie">Categorie</a>
-
-<a href="#partecipa">Partecipa</a>
-
+<a href="#attivita">Attività</a><a href="#categorie">Categorie</a><a href="#partecipa">Partecipa</a>
 <a class="nav-cta" href="#contatti">Contatti</a>
-
 </nav>
-
 </header>
 
-
 <main id="top">
-
-
-<!-- HERO -->
-
 <section class="hero">
-
 <div>
-
-<p class="eyebrow">
-LA VETRINA DIGITALE DI MAGLIE
-</p>
-
-<h1>
-Le storie più belle si trovano
-<em>vicino a te.</em>
-</h1>
-
-<p class="hero-intro">
-
-Made in Maglie raccoglie le attività del territorio
-in un'unica vetrina.
-
-Cerca un'attività, scegli una categoria
-e apri direttamente la sua posizione su Google Maps.
-
-</p>
-
-
+<p class="eyebrow">LA VETRINA DIGITALE DI MAGLIE</p>
+<h1>Le storie più belle si trovano <em>vicino a te.</em></h1>
+<p class="hero-intro">Made in Maglie raccoglie le attività del territorio in un'unica vetrina. Cerca un'attività, scegli una categoria e apri direttamente la sua posizione su Google Maps.</p>
 <div class="hero-actions">
-
-<a class="button button-primary" href="#attivita">
-Scopri le attività ↓
-</a>
-
-<a class="button button-secondary" href="#partecipa">
-Entra nella vetrina
-</a>
-
+<a class="button button-primary" href="#attivita">Scopri le attività ↓</a>
+<a class="button button-secondary" href="#partecipa">Entra nella vetrina</a>
 </div>
-
 </div>
-
-
-<div class="hero-logo">
-
-<img
-src="data:image/png;base64,INSERISCI_QUI_IL_LOGO_BASE64"
-alt="Made in Maglie"
->
-
-</div>
-
+<div class="hero-logo"><img src="logo.png" alt="Made in Maglie"></div>
 </section>
 
-
-
-<!-- ATTIVITÀ -->
-
-<section class="categories" id="attivita">
-
+<section id="attivita" class="categories">
 <div class="section-wrap">
-
+<p class="eyebrow">ATTIVITÀ LOCALI</p>
 <div class="section-heading heading-light">
-
-<div>
-
-<p class="eyebrow">
-SCOPRI IL TERRITORIO
-</p>
-
-<h2>
-Le attività di <em>Maglie.</em>
-</h2>
-
+<div><h2>Scopri chi fa vivere <em>Maglie.</em></h2></div>
+<p>Le attività qui sotto sono organizzate per categoria. Ogni scheda è cliccabile e apre la ricerca dell'attività su Google Maps.</p>
 </div>
-
-<p>
-
-Una selezione di attività locali,
-organizzate per categoria e facilmente
-raggiungibili.
-
-</p>
-
-</div>
-
-
-<input
-id="search"
-class="search"
-type="search"
-placeholder="Cerca un'attività..."
-aria-label="Cerca un'attività"
->
-
-
+<input id="search" class="search" type="search" placeholder="Cerca attività, categoria o indirizzo...">
 <div id="filters" class="filters"></div>
-
-
 <div id="business-grid" class="business-grid"></div>
-
 </div>
-
 </section>
 
-
-
-<!-- CATEGORIE -->
-
-<section id="categorie">
-
-<div class="section-wrap">
-
+<section id="categorie" class="section-wrap">
+<p class="eyebrow">IL PROGETTO</p>
 <div class="section-heading">
-
-<div>
-
-<p class="eyebrow">
-SCEGLI LA TUA CATEGORIA
-</p>
-
-<h2>
-Tutto quello che cerchi,
-<em>a Maglie.</em>
-</h2>
-
+<h2>Un posto per ogni <em>passione.</em></h2>
+<p>Una guida semplice per scoprire chi crea, accoglie, cucina, vende, progetta e lavora a Maglie.</p>
 </div>
-
-<p>
-
-Dalla moda alla ristorazione,
-dai servizi all'artigianato.
-La città è piena di persone
-che fanno cose interessanti.
-Stranamente, ogni tanto gli esseri umani
-producono anche qualcosa di bello.
-
-</p>
-
-</div>
-
-
 <div class="intro-grid">
-
-<div class="info">
-
-<span class="number">01</span>
-
-<h3>Moda e stile</h3>
-
-<p>
-Negozi, boutique e attività
-dedicate allo stile.
-</p>
-
+<article class="info"><span class="number">01</span><h3>Scopri</h3><p>Trova attività locali e servizi del territorio.</p></article>
+<article class="info"><span class="number">02</span><h3>Conosci</h3><p>Apri la scheda e raggiungi direttamente l'attività.</p></article>
+<article class="info"><span class="number">03</span><h3>Scegli locale</h3><p>Una scelta quotidiana che aiuta l'economia della città.</p></article>
 </div>
-
-
-<div class="info">
-
-<span class="number">02</span>
-
-<h3>Gusto e sapori</h3>
-
-<p>
-Bar, ristoranti, pizzerie,
-forni e prodotti del territorio.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">03</span>
-
-<h3>Arte e artigianato</h3>
-
-<p>
-Creatività, artigiani,
-design e produzioni locali.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">04</span>
-
-<h3>Servizi</h3>
-
-<p>
-Le attività che ogni giorno
-fanno funzionare la città.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">05</span>
-
-<h3>Ospitalità</h3>
-
-<p>
-Hotel, strutture ricettive
-e accoglienza.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">06</span>
-
-<h3>Benessere</h3>
-
-<p>
-Bellezza, cura della persona
-e benessere.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
+<section id="partecipa" class="section-wrap">
+<p class="eyebrow">HAI UN'ATTIVITÀ A MAGLIE?</p>
+<h2>Questo spazio può raccontare anche <em>te.</em></h2>
+<p style="max-width:650px;line-height:1.7;color:#667085">Inserisci la tua attività nella vetrina Made in Maglie e rendi più facile trovarti online.</p>
+<a class="button button-primary" href="#contatti">Voglio partecipare →</a>
+</section>
 
-
-<!-- PARTECIPA -->
-
-<section id="partecipa">
-
+<section id="contatti" class="contact-section">
 <div class="section-wrap">
-
-<div class="section-heading">
-
-<div>
-
-<p class="eyebrow">
-PER LE ATTIVITÀ LOCALI
-</p>
-
-<h2>
-Entra nella rete
-<em>Made in Maglie.</em>
-</h2>
-
+<p class="eyebrow">RESTIAMO IN CONTATTO</p>
+<h2>Maglie è più bella quando la viviamo insieme.</h2>
+<p>Spazio pronto per aggiungere WhatsApp, Instagram e gli altri contatti ufficiali del progetto.</p>
 </div>
-
-<p>
-
-Made in Maglie nasce per valorizzare
-le attività della città e renderle
-più facilmente visibili online.
-
-</p>
-
-</div>
-
-
-<div class="intro-grid">
-
-<div class="info">
-
-<span class="number">01</span>
-
-<h3>Più visibilità</h3>
-
-<p>
-Presenta la tua attività
-a cittadini e visitatori.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">02</span>
-
-<h3>Presenza digitale</h3>
-
-<p>
-Una vetrina semplice,
-chiara e sempre accessibile.
-</p>
-
-</div>
-
-
-<div class="info">
-
-<span class="number">03</span>
-
-<h3>Territorio</h3>
-
-<p>
-Costruiamo insieme una rete
-di attività di Maglie.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-
-
-
-<!-- CONTATTI -->
-
-<section class="contact-section" id="contatti">
-
-<div class="section-wrap">
-
-<p class="eyebrow">
-MADE IN MAGLIE
-</p>
-
-<h2>
-La nostra città.
-<br>
-Le nostre attività.
-<br>
-<em>Il nostro orgoglio.</em>
-</h2>
-
-<p>
-
-Hai un'attività a Maglie e vuoi
-entrare nella vetrina digitale?
-
-Scrivici per partecipare al progetto.
-
-</p>
-
-
-<div class="hero-actions">
-
-<a
-class="button button-primary"
-href="https://wa.me/"
-target="_blank"
-rel="noopener noreferrer"
->
-WhatsApp
-</a>
-
-<a
-class="button button-secondary"
-href="https://instagram.com/"
-target="_blank"
-rel="noopener noreferrer"
->
-Instagram
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
 </main>
 
-
-
-<!-- FOOTER -->
-
 <footer>
-
-<a class="brand" href="#top">
-
-<img
-src="data:image/png;base64,INSERISCI_QUI_IL_LOGO_BASE64"
-alt="Made in Maglie"
->
-
-<span>Made in Maglie</span>
-
-</a>
-
-<p>
-© <span id="year"></span> Made in Maglie
-</p>
-
-<a href="#top">
-Torna su ↑
-</a>
-
+<a class="brand" href="#top"><img src="logo.png" alt=""><span>Made in Maglie</span></a>
+<p>© <span id="year"></span> Made in Maglie</p>
+<a href="#top">Torna su ↑</a>
 </footer>
 
-
-
 <script>
-
-const businesses = [
-
-{
-name:"Candido 1859",
-category:"Moda e stile",
-address:"Piazza Aldo Moro, 9, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Amélie Restaurant",
-category:"Gusto e sapori",
-address:"Via Giuseppe Garibaldi, 12, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Caffè Leopardi",
-category:"Gusto e sapori",
-address:"Via Alcide De Gasperi, 7, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Corso Vittorio Outlet",
-category:"Moda e stile",
-address:"Via Vittorio Emanuele, 119, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Belami - Hotel Ristorante Cantina",
-category:"Gusto e ospitalità",
-address:"Via Roma, 86, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Cubi",
-category:"Gusto e sapori",
-address:"Via S. Giuseppe, 12, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"ONCE",
-category:"Arte e artigianato",
-address:"Via Fratelli Piccinno, 90, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"CRiS&CO",
-category:"Moda e stile",
-address:"Via Umberto I, 51, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Classico Maglie",
-category:"Gusto e sapori",
-address:"Piazza Aldo Moro, 22, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Caffè della Libertà",
-category:"Gusto e sapori",
-address:"Piazza Aldo Moro, 16, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"La Sellerie Limited",
-category:"Moda e stile",
-address:"Via Giacomo Matteotti, 15, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Negro Service - Punto Edison Maglie",
-category:"Servizi",
-address:"Via Scorrano, 5, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"TRENDY",
-category:"Moda e stile",
-address:"Via Francesca Capece, 12, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"
-},
-
-{
-name:"Maglie Territorio Ambiente Servizi",
-category:"Servizi",
-address:"Via Indipendenza, 5, 73024 Maglie LE",
-maps:"https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"
-}
-
-];
-
-
-const grid =
-document.getElementById("business-grid");
-
-const filters =
-document.getElementById("filters");
-
-const search =
-document.getElementById("search");
-
+const businesses = [{"name": "Candido 1859", "category": "Moda e stile", "address": "Piazza Aldo Moro, 9, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"}, {"name": "Amélie Restaurant", "category": "Gusto e sapori", "address": "Via Giuseppe Garibaldi, 12, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"}, {"name": "Caffè Leopardi", "category": "Gusto e sapori", "address": "Via Alcide De Gasperi, 7, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"}, {"name": "Corso Vittorio Outlet", "category": "Moda e stile", "address": "Via Vittorio Emanuele, 119, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"}, {"name": "Belami - Hotel Ristorante Cantina", "category": "Gusto e ospitalità", "address": "Via Roma, 86, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"}, {"name": "Cubi", "category": "Gusto e sapori", "address": "Via S. Giuseppe, 12, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"}, {"name": "ONCE", "category": "Arte e artigianato", "address": "Via Fratelli Piccinno, 90, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"}, {"name": "CRiS&CO", "category": "Moda e stile", "address": "Via Umberto I, 51, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"}, {"name": "Classico Maglie", "category": "Gusto e sapori", "address": "Piazza Aldo Moro, 22, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"}, {"name": "Caffè della Libertà", "category": "Gusto e sapori", "address": "Piazza Aldo Moro, 16, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"}, {"name": "La Sellerie Limited", "category": "Moda e stile", "address": "Via Giacomo Matteotti, 15, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"}, {"name": "Negro Service - Punto Edison Maglie", "category": "Servizi", "address": "Via Scorrano, 5, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"}, {"name": "TRENDY", "category": "Moda e stile", "address": "Via Francesca Capece, 12, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"}, {"name": "Maglie Territorio Ambiente Servizi", "category": "Servizi", "address": "Via Indipendenza, 5, 73024 Maglie LE", "maps": "https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"}];
+const grid = document.getElementById("business-grid");
+const filters = document.getElementById("filters");
+const search = document.getElementById("search");
 let currentCategory = "Tutte";
 
-
-const categories = [
-"Tutte",
-...new Set(
-businesses.map(b => b.category)
-)
-];
-
+const categories = ["Tutte", ...new Set(businesses.map(b => b.category))];
 
 categories.forEach(cat => {
-
-const btn =
-document.createElement("button");
-
-btn.className =
-"filter" +
-(cat === "Tutte" ? " active" : "");
-
-btn.textContent = cat;
-
-btn.type = "button";
-
-btn.onclick = () => {
-
-currentCategory = cat;
-
-document
-.querySelectorAll(".filter")
-.forEach(b =>
-b.classList.remove("active")
-);
-
-btn.classList.add("active");
-
-render();
-
-};
-
-filters.appendChild(btn);
-
+  const btn = document.createElement("button");
+  btn.className = "filter" + (cat === "Tutte" ? " active" : "");
+  btn.textContent = cat;
+  btn.type = "button";
+  btn.onclick = () => {
+    currentCategory = cat;
+    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+  };
+  filters.appendChild(btn);
 });
 
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const list = businesses.filter(b =>
+    (currentCategory === "Tutte" || b.category === currentCategory) &&
+    (b.name + " " + b.category + " " + b.address).toLowerCase().includes(q)
+  );
 
-function render(){
-
-const q =
-search.value.trim().toLowerCase();
-
-
-const list =
-businesses.filter(b =>
-
-(currentCategory === "Tutte" ||
-b.category === currentCategory)
-
-&&
-
-(
-b.name +
-" " +
-b.category +
-" " +
-b.address
-)
-.toLowerCase()
-.includes(q)
-
-);
-
-
-grid.innerHTML = list.length
-
-? list.map(b => `
-
-<a
-class="business-card"
-href="${b.maps}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Apri ${b.name} su Google Maps"
->
-
-<span class="badge">
-${b.category}
-</span>
-
-<h3>
-${b.name}
-</h3>
-
-<div class="address">
-${b.address}
-</div>
-
-<span class="card-link">
-Apri su Google Maps
-<span>↗</span>
-</span>
-
-</a>
-
-`).join("")
-
-:
-
-`
-<div class="empty">
-Nessuna attività trovata.
-</div>
-`;
-
+  grid.innerHTML = list.length ? list.map(b => `
+    <a class="business-card" href="${b.maps}" target="_blank" rel="noopener noreferrer" aria-label="Apri ${b.name} su Google Maps">
+      <span class="badge">${b.category}</span>
+      <h3>${b.name}</h3>
+      <div class="address">${b.address}</div>
+      <span class="card-link">Apri su Google Maps <span>↗</span></span>
+    </a>
+  `).join("") : '<div class="empty">Nessuna attività trovata. Il motore di ricerca non ha fallito, semplicemente non c’è magia nei dati.</div>';
 }
-
-
-search.addEventListener(
-"input",
-render
-);
-
-
-document.getElementById("year")
-.textContent =
-new Date().getFullYear();
-
-
+search.addEventListener("input", render);
+document.getElementById("year").textContent = new Date().getFullYear();
 render();
-
 </script>
-
 </body>
 </html>
