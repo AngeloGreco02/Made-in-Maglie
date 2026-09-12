@@ -1,10 +1,20 @@
 <!doctype html>
 <html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" type="image/png" href="logo.png">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="logo.png"
+>
 
 <meta
   name="description"
@@ -13,7 +23,13 @@
 
 <title>Made in Maglie — Scegli locale, vivi Maglie</title>
 
+
 <style>
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 
 :root{
@@ -54,18 +70,27 @@ textarea{
   font:inherit;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .site-header{
   position:sticky;
   top:0;
   z-index:20;
+
   background:rgba(247,243,236,.96);
+
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(16,47,87,.1);
+
+  border-bottom:
+    1px solid rgba(16,47,87,.1);
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   padding:12px 5vw;
 }
 
@@ -73,6 +98,7 @@ textarea{
   display:flex;
   align-items:center;
   gap:12px;
+
   font-weight:700;
   color:var(--blue);
 }
@@ -80,15 +106,20 @@ textarea{
 .brand img{
   width:58px;
   height:58px;
+
   object-fit:cover;
+
   border-radius:50%;
 }
 
 .nav-links{
   display:flex;
   gap:24px;
+
   align-items:center;
+
   font-weight:600;
+
   flex-wrap:wrap;
 }
 
@@ -98,127 +129,186 @@ textarea{
 
 .nav-cta{
   padding:11px 17px;
+
   background:var(--blue);
+
   color:#fff!important;
+
   border-radius:999px;
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
   max-width:1200px;
+
   margin:auto;
+
   padding:70px 5vw 45px;
+
   display:grid;
+
   grid-template-columns:1.1fr .9fr;
+
   gap:45px;
+
   align-items:center;
 }
 
 .eyebrow{
   color:var(--gold);
+
   font-weight:700;
+
   letter-spacing:.13em;
+
   font-size:.78rem;
 }
 
 h1,
 h2{
   font-family:Fraunces,serif;
+
   color:var(--blue);
+
   line-height:1.02;
 }
 
 h1{
   font-size:clamp(3rem,6vw,5.8rem);
+
   margin:15px 0 25px;
 }
 
 h1 em,
 h2 em{
   color:var(--gold);
+
   font-style:normal;
 }
 
 .hero-intro{
   font-size:1.12rem;
+
   line-height:1.7;
+
   max-width:650px;
+
   color:#4c586b;
 }
 
 .hero-actions{
   display:flex;
+
   gap:12px;
+
   flex-wrap:wrap;
+
   margin:28px 0;
 }
 
 .button{
   display:inline-flex;
+
   align-items:center;
-  gap:10px;
+
+  justify-content:center;
+
   padding:14px 20px;
+
   border-radius:999px;
+
   font-weight:700;
+
+  transition:.2s;
 }
 
 .button-primary{
   background:var(--blue);
+
   color:#fff;
 }
 
+.button-primary:hover{
+  background:#173f73;
+}
+
 .button-secondary{
-  border:1px solid var(--blue);
+  border:1px solid rgba(16,47,87,.2);
+
   color:var(--blue);
+
+  background:#fff;
 }
 
 .hero-logo{
   display:flex;
+
   justify-content:center;
+
+  align-items:center;
 }
 
 .hero-logo img{
-  width:min(430px,90%);
-  border-radius:50%;
-  box-shadow:0 24px 60px rgba(16,47,87,.16);
+  width:min(420px,85%);
+
+  filter:drop-shadow(
+    0 20px 30px rgba(16,47,87,.12)
+  );
 }
 
-/* SECTIONS */
+
+/* =========================================================
+   SEZIONI
+   ========================================================= */
 
 .section-wrap{
   max-width:1200px;
+
   margin:auto;
-  padding:75px 5vw;
+
+  padding:80px 5vw;
 }
 
 .section-heading{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
   gap:40px;
+
   align-items:end;
-  margin-bottom:35px;
+
+  margin-bottom:30px;
 }
 
 .section-heading h2{
-  font-size:clamp(2.3rem,4vw,4rem);
-  margin:8px 0;
+  margin:0;
+
+  font-size:clamp(2.5rem,5vw,4.5rem);
 }
 
 .section-heading p{
-  max-width:440px;
-  line-height:1.7;
   color:var(--muted);
+
+  line-height:1.7;
 }
 
-/* ATTIVITA */
+
+/* =========================================================
+   ATTIVITA
+   ========================================================= */
 
 .categories{
   background:var(--blue);
+
   color:#fff;
 }
 
-.categories h2{
+.heading-light h2{
   color:#fff;
 }
 
@@ -226,122 +316,171 @@ h2 em{
   color:#d4dbe5;
 }
 
+.search{
+  width:100%;
+
+  padding:16px 18px;
+
+  border:0;
+
+  border-radius:14px;
+
+  margin-bottom:20px;
+
+  outline:none;
+
+  font-size:1rem;
+}
+
 .filters{
   display:flex;
+
   gap:10px;
+
   flex-wrap:wrap;
-  margin:0 0 28px;
+
+  margin-bottom:25px;
 }
 
 .filter{
   border:1px solid rgba(255,255,255,.25);
+
   background:transparent;
+
   color:#fff;
-  padding:10px 15px;
+
+  padding:9px 15px;
+
   border-radius:999px;
+
   cursor:pointer;
 }
 
 .filter.active,
 .filter:hover{
   background:var(--gold);
+
   border-color:var(--gold);
-  color:#fff;
-}
-
-.search{
-  width:100%;
-  padding:15px 18px;
-  border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  border-radius:14px;
-  margin-bottom:18px;
-  outline:none;
-}
-
-.search::placeholder{
-  color:#cbd5e1;
 }
 
 .business-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:18px;
 }
 
 .business-card{
-  background:#fff;
-  color:var(--ink);
-  border-radius:20px;
-  padding:24px;
   display:flex;
+
   flex-direction:column;
-  min-height:225px;
+
+  min-height:220px;
+
+  padding:25px;
+
+  background:#fff;
+
+  color:var(--ink);
+
+  border-radius:18px;
+
   transition:.2s;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
 }
 
 .business-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(0,0,0,.14);
 }
 
 .badge{
-  color:var(--gold);
-  font-weight:700;
+  align-self:flex-start;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:#f0ece4;
+
+  color:var(--blue);
+
   font-size:.78rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
+
+  font-weight:700;
 }
 
 .business-card h3{
-  font-family:Fraunces,serif;
-  font-size:1.55rem;
   color:var(--blue);
-  margin:10px 0;
+
+  margin:18px 0 8px;
+
+  font-size:1.25rem;
 }
 
 .address{
   color:var(--muted);
+
   line-height:1.5;
-  font-size:.92rem;
+
   margin-bottom:20px;
 }
 
 .card-link{
   margin-top:auto;
+
   display:inline-flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   color:var(--blue);
+
   font-weight:700;
 }
 
 .empty{
   grid-column:1/-1;
+
   text-align:center;
+
   padding:40px;
+
   color:#d4dbe5;
 }
 
-/* PROGETTO */
+
+/* =========================================================
+   PROGETTO
+   ========================================================= */
 
 .intro-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
 .info{
   padding:28px;
-  border:1px solid rgba(16,47,87,.1);
+
+  border:
+    1px solid rgba(16,47,87,.1);
+
   border-radius:18px;
+
   background:#fff;
 }
 
 .info .number{
   color:var(--gold);
+
   font-weight:700;
 }
 
@@ -349,7 +488,10 @@ h2 em{
   color:var(--blue);
 }
 
-/* PARTECIPA */
+
+/* =========================================================
+   PARTECIPA
+   ========================================================= */
 
 .participate-section{
   background:#fff;
@@ -359,36 +501,41 @@ h2 em{
   max-width:800px;
 }
 
-/* SUGGERISCI */
+
+/* =========================================================
+   SUGGERISCI
+   ========================================================= */
 
 .suggest-section{
   background:#f0ece4;
 }
 
-.suggest-intro{
-  max-width:720px;
-  line-height:1.7;
-  color:var(--muted);
-  margin-bottom:30px;
-}
-
 .ticket-form{
   max-width:900px;
+
   background:#fff;
+
   border-radius:24px;
+
   padding:32px;
-  box-shadow:0 12px 40px rgba(16,47,87,.08);
+
+  box-shadow:
+    0 12px 40px rgba(16,47,87,.08);
 }
 
 .form-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:20px;
 }
 
 .form-field{
   display:flex;
+
   flex-direction:column;
+
   gap:8px;
 }
 
@@ -398,6 +545,7 @@ h2 em{
 
 .form-field label{
   font-weight:700;
+
   color:var(--blue);
 }
 
@@ -405,12 +553,20 @@ h2 em{
 .form-field select,
 .form-field textarea{
   width:100%;
-  border:1px solid #d8dde5;
+
+  border:
+    1px solid #d8dde5;
+
   border-radius:12px;
+
   padding:14px 15px;
+
   background:#fff;
+
   color:var(--ink);
+
   outline:none;
+
   transition:.2s;
 }
 
@@ -418,43 +574,64 @@ h2 em{
 .form-field select:focus,
 .form-field textarea:focus{
   border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(197,154,72,.12);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(197,154,72,.12);
 }
 
 .form-field textarea{
   min-height:150px;
+
   resize:vertical;
 }
 
 .file-box{
-  border:2px dashed #d8dde5;
+  border:
+    2px dashed #d8dde5;
+
   border-radius:14px;
+
   padding:18px;
+
   background:#fafafa;
 }
 
 .file-box input{
   border:0;
+
   padding:0;
+
   background:transparent;
 }
 
 .file-info{
   display:block;
+
   margin-top:8px;
+
   color:var(--muted);
+
   font-size:.9rem;
 }
 
 .ticket-submit{
   margin-top:25px;
+
   border:0;
+
   cursor:pointer;
+
   background:var(--blue);
+
   color:#fff;
+
   padding:15px 22px;
+
   border-radius:999px;
+
   font-weight:700;
+
   transition:.2s;
 }
 
@@ -464,65 +641,100 @@ h2 em{
 
 .ticket-submit:disabled{
   opacity:.6;
+
   cursor:not-allowed;
 }
 
 .ticket-note{
   margin-top:18px;
+
   color:var(--muted);
+
   font-size:.88rem;
+
   line-height:1.6;
 }
 
 .ticket-success{
   display:none;
+
   margin-top:20px;
-  padding:18px;
+
+  padding:20px;
+
   border-radius:14px;
+
   background:#eaf7ef;
+
   color:#176b3a;
+
   font-weight:600;
+
   line-height:1.6;
 }
 
 .ticket-error{
   display:none;
+
   margin-top:20px;
-  padding:18px;
+
+  padding:20px;
+
   border-radius:14px;
+
   background:#fdeeee;
+
   color:#9f2d25;
+
   font-weight:600;
+
   line-height:1.6;
 }
 
-/* CONTATTI */
+
+/* =========================================================
+   CONTATTI
+   ========================================================= */
 
 .contact-section{
-  background:#102f57;
+  background:var(--blue);
+
   color:#fff;
 }
 
 .contact-section h2{
   color:#fff;
-  font-size:clamp(2.4rem,5vw,4.5rem);
+
+  font-size:
+    clamp(2.4rem,5vw,4.5rem);
 }
 
 .contact-section p{
   color:#d4dbe5;
+
   max-width:650px;
+
   line-height:1.7;
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:20px;
+
   padding:25px 5vw;
+
   background:#0c2341;
+
   color:#fff;
 }
 
@@ -530,12 +742,16 @@ footer .brand{
   color:#fff;
 }
 
-/* RESPONSIVE */
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media(max-width:850px){
 
   .hero{
     grid-template-columns:1fr;
+
     padding-top:45px;
   }
 
@@ -559,7 +775,9 @@ footer .brand{
   .form-field.full{
     grid-column:auto;
   }
+
 }
+
 
 @media(max-width:560px){
 
@@ -592,32 +810,80 @@ footer .brand{
   .ticket-form{
     padding:22px;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
 <header class="site-header">
 
-  <a class="brand" href="#top">
-    <img src="logo.png" alt="Logo Made in Maglie">
-    <span>Made in Maglie</span>
+  <a
+    class="brand"
+    href="#top"
+  >
+
+    <img
+      src="logo.png"
+      alt="Logo Made in Maglie"
+    >
+
+    <span>
+      Made in Maglie
+    </span>
+
   </a>
 
-  <nav class="nav-links" aria-label="Navigazione principale">
-    <a href="#attivita">Attività</a>
-    <a href="#categorie">Categorie</a>
-    <a href="#partecipa">Partecipa</a>
-    <a href="#suggerisci">Suggerisci</a>
-    <a class="nav-cta" href="#contatti">Contatti</a>
+
+  <nav
+    class="nav-links"
+    aria-label="Navigazione principale"
+  >
+
+    <a href="#attivita">
+      Attività
+    </a>
+
+    <a href="#categorie">
+      Categorie
+    </a>
+
+    <a href="#partecipa">
+      Partecipa
+    </a>
+
+    <a href="#suggerisci">
+      Suggerisci
+    </a>
+
+    <a
+      class="nav-cta"
+      href="#contatti"
+    >
+      Contatti
+    </a>
+
   </nav>
 
 </header>
 
+
+
 <main id="top">
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
 <section class="hero">
 
@@ -627,23 +893,39 @@ footer .brand{
       LA VETRINA DIGITALE DI MAGLIE
     </p>
 
+
     <h1>
-      Le storie più belle si trovano <em>vicino a te.</em>
+      Le storie più belle si trovano
+      <em>vicino a te.</em>
     </h1>
 
+
     <p class="hero-intro">
-      Made in Maglie raccoglie le attività del territorio in un'unica
-      vetrina. Cerca un'attività, scegli una categoria e apri direttamente
-      la sua posizione su Google Maps.
+
+      Made in Maglie raccoglie le attività
+      del territorio in un'unica vetrina.
+
+      Cerca un'attività, scegli una categoria
+      e apri direttamente la sua posizione
+      su Google Maps.
+
     </p>
+
 
     <div class="hero-actions">
 
-      <a class="button button-primary" href="#attivita">
+      <a
+        class="button button-primary"
+        href="#attivita"
+      >
         Scopri le attività ↓
       </a>
 
-      <a class="button button-secondary" href="#partecipa">
+
+      <a
+        class="button button-secondary"
+        href="#partecipa"
+      >
         Entra nella vetrina
       </a>
 
@@ -651,16 +933,28 @@ footer .brand{
 
   </div>
 
+
   <div class="hero-logo">
-    <img src="logo.png" alt="Made in Maglie">
+
+    <img
+      src="logo.png"
+      alt="Made in Maglie"
+    >
+
   </div>
 
 </section>
 
 
-<!-- ATTIVITA -->
 
-<section id="attivita" class="categories">
+<!-- =====================================================
+     ATTIVITA
+     ===================================================== -->
+
+<section
+  id="attivita"
+  class="categories"
+>
 
   <div class="section-wrap">
 
@@ -668,21 +962,33 @@ footer .brand{
       ATTIVITÀ LOCALI
     </p>
 
-    <div class="section-heading heading-light">
+
+    <div
+      class="section-heading heading-light"
+    >
 
       <div>
+
         <h2>
-          Scopri chi fa vivere <em>Maglie.</em>
+          Scopri chi fa vivere
+          <em>Maglie.</em>
         </h2>
+
       </div>
 
+
       <p>
-        Le attività qui sotto sono organizzate per categoria.
-        Ogni scheda è cliccabile e apre la ricerca dell'attività
-        su Google Maps.
+
+        Le attività qui sotto sono organizzate
+        per categoria.
+
+        Ogni scheda è cliccabile e apre
+        la ricerca dell'attività su Google Maps.
+
       </p>
 
     </div>
+
 
     <input
       id="search"
@@ -692,70 +998,128 @@ footer .brand{
       aria-label="Cerca attività"
     >
 
-    <div id="filters" class="filters"></div>
 
-    <div id="business-grid" class="business-grid"></div>
+    <div
+      id="filters"
+      class="filters"
+    ></div>
+
+
+    <div
+      id="business-grid"
+      class="business-grid"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- CATEGORIE -->
 
-<section id="categorie" class="section-wrap">
+<!-- =====================================================
+     CATEGORIE
+     ===================================================== -->
+
+<section
+  id="categorie"
+  class="section-wrap"
+>
 
   <p class="eyebrow">
     IL PROGETTO
   </p>
 
+
   <div class="section-heading">
 
     <h2>
-      Un posto per ogni <em>passione.</em>
+      Un posto per ogni
+      <em>passione.</em>
     </h2>
 
+
     <p>
-      Una guida semplice per scoprire chi crea, accoglie, cucina,
-      vende, progetta e lavora a Maglie.
+
+      Una guida semplice per scoprire
+      chi crea, accoglie, cucina, vende,
+      progetta e lavora a Maglie.
+
     </p>
 
   </div>
 
+
   <div class="intro-grid">
 
-    <article class="info">
-      <span class="number">01</span>
-      <h3>Scopri</h3>
-      <p>
-        Trova attività locali e servizi del territorio.
-      </p>
-    </article>
 
     <article class="info">
-      <span class="number">02</span>
-      <h3>Conosci</h3>
+
+      <span class="number">
+        01
+      </span>
+
+      <h3>
+        Scopri
+      </h3>
+
       <p>
-        Apri la scheda e raggiungi direttamente l'attività.
+        Trova attività locali
+        e servizi del territorio.
       </p>
+
     </article>
 
+
     <article class="info">
-      <span class="number">03</span>
-      <h3>Scegli locale</h3>
+
+      <span class="number">
+        02
+      </span>
+
+      <h3>
+        Conosci
+      </h3>
+
       <p>
-        Una scelta quotidiana che aiuta l'economia della città.
+        Apri la scheda e raggiungi
+        direttamente l'attività.
       </p>
+
     </article>
+
+
+    <article class="info">
+
+      <span class="number">
+        03
+      </span>
+
+      <h3>
+        Scegli locale
+      </h3>
+
+      <p>
+        Una scelta quotidiana che aiuta
+        l'economia della città.
+      </p>
+
+    </article>
+
 
   </div>
 
 </section>
 
 
-<!-- PARTECIPA -->
 
-<section id="partecipa" class="participate-section">
+<!-- =====================================================
+     PARTECIPA
+     ===================================================== -->
+
+<section
+  id="partecipa"
+  class="participate-section"
+>
 
   <div class="section-wrap">
 
@@ -765,18 +1129,32 @@ footer .brand{
         HAI UN'ATTIVITÀ A MAGLIE?
       </p>
 
+
       <h2>
-        Questo spazio può raccontare anche <em>te.</em>
+        Questo spazio può raccontare anche
+        <em>te.</em>
       </h2>
 
-      <p style="max-width:650px;line-height:1.7;color:#667085">
 
-        Inserisci la tua attività nella vetrina Made in Maglie
-        e rendi più facile trovarti online.
+      <p
+        style="
+          max-width:650px;
+          line-height:1.7;
+          color:#667085
+        "
+      >
+
+        Inserisci la tua attività nella vetrina
+        Made in Maglie e rendi più facile
+        trovarti online.
 
       </p>
 
-      <a class="button button-primary" href="#contatti">
+
+      <a
+        class="button button-primary"
+        href="#contatti"
+      >
         Voglio partecipare →
       </a>
 
@@ -787,9 +1165,15 @@ footer .brand{
 </section>
 
 
-<!-- SUGGERISCI -->
 
-<section id="suggerisci" class="suggest-section">
+<!-- =====================================================
+     SUGGERISCI
+     ===================================================== -->
+
+<section
+  id="suggerisci"
+  class="suggest-section"
+>
 
   <div class="section-wrap">
 
@@ -797,26 +1181,37 @@ footer .brand{
       SUGGERISCI
     </p>
 
+
     <div class="section-heading">
 
       <div>
 
         <h2>
-          Hai un'idea per migliorare <em>Made in Maglie?</em>
+          Hai un'idea per migliorare
+          <em>Made in Maglie?</em>
         </h2>
 
       </div>
 
+
       <p>
-        Segnalaci un'attività da aggiungere, un problema,
-        una modifica o una nuova idea. La tua richiesta
-        verrà registrata come ticket.
+
+        Segnalaci un'attività da aggiungere,
+        un problema, una modifica o una nuova idea.
+
+        La tua richiesta verrà registrata come ticket.
+
       </p>
 
     </div>
 
 
-    <form id="ticket-form" class="ticket-form">
+
+    <form
+      id="ticket-form"
+      class="ticket-form"
+    >
+
 
       <div class="form-grid">
 
@@ -834,10 +1229,12 @@ footer .brand{
             name="name"
             type="text"
             placeholder="Il tuo nome"
+            maxlength="100"
             required
           >
 
         </div>
+
 
 
         <!-- EMAIL -->
@@ -853,10 +1250,12 @@ footer .brand{
             name="email"
             type="email"
             placeholder="nome@email.it"
+            maxlength="150"
             required
           >
 
         </div>
+
 
 
         <!-- CATEGORIA -->
@@ -866,6 +1265,7 @@ footer .brand{
           <label for="ticket-category">
             Categoria *
           </label>
+
 
           <select
             id="ticket-category"
@@ -910,6 +1310,7 @@ footer .brand{
         </div>
 
 
+
         <!-- TITOLO -->
 
         <div class="form-field">
@@ -918,15 +1319,18 @@ footer .brand{
             Titolo della richiesta *
           </label>
 
+
           <input
             id="ticket-title"
             name="title"
             type="text"
             placeholder="Es. Aggiungere una nuova attività"
+            maxlength="200"
             required
           >
 
         </div>
+
 
 
         <!-- DESCRIZIONE -->
@@ -937,14 +1341,17 @@ footer .brand{
             Descrizione *
           </label>
 
+
           <textarea
             id="ticket-description"
             name="description"
             placeholder="Descrivi nel modo più preciso possibile la tua proposta o segnalazione..."
+            maxlength="5000"
             required
           ></textarea>
 
         </div>
+
 
 
         <!-- ALLEGATO -->
@@ -955,14 +1362,16 @@ footer .brand{
             Allegato
           </label>
 
+
           <div class="file-box">
 
             <input
               id="ticket-file"
               name="file"
               type="file"
-              accept="image/*,.pdf"
+              accept="image/jpeg,image/png,image/webp,image/gif,application/pdf"
             >
+
 
             <span
               id="file-name"
@@ -973,14 +1382,24 @@ footer .brand{
 
           </div>
 
+
           <small class="file-info">
-            Puoi allegare un'immagine o un PDF. Dimensione massima: 5 MB.
+
+            Puoi allegare un'immagine
+            o un PDF.
+
+            Dimensione massima: 5 MB.
+
           </small>
 
         </div>
 
+
       </div>
 
+
+
+      <!-- BOTTONE -->
 
       <button
         type="submit"
@@ -990,12 +1409,18 @@ footer .brand{
       </button>
 
 
+
+      <!-- SUCCESSO -->
+
       <div
         id="ticket-success"
         class="ticket-success"
         role="status"
       ></div>
 
+
+
+      <!-- ERRORE -->
 
       <div
         id="ticket-error"
@@ -1004,12 +1429,17 @@ footer .brand{
       ></div>
 
 
+
       <p class="ticket-note">
 
-        I dati inviati vengono utilizzati per gestire la richiesta.
-        Gli allegati non vengono pubblicati sul sito.
+        I dati inviati vengono utilizzati
+        per gestire la richiesta.
+
+        Gli allegati non vengono pubblicati
+        sul sito.
 
       </p>
+
 
     </form>
 
@@ -1018,9 +1448,15 @@ footer .brand{
 </section>
 
 
-<!-- CONTATTI -->
 
-<section id="contatti" class="contact-section">
+<!-- =====================================================
+     CONTATTI
+     ===================================================== -->
+
+<section
+  id="contatti"
+  class="contact-section"
+>
 
   <div class="section-wrap">
 
@@ -1028,27 +1464,40 @@ footer .brand{
       RESTIAMO IN CONTATTO
     </p>
 
+
     <h2>
-      Maglie è più bella quando la viviamo insieme.
+      Maglie è più bella quando
+      la viviamo insieme.
     </h2>
 
+
     <p>
-      Spazio pronto per aggiungere WhatsApp, Instagram
-      e gli altri contatti ufficiali del progetto.
+
+      Spazio pronto per aggiungere
+      WhatsApp, Instagram e gli altri
+      contatti ufficiali del progetto.
+
     </p>
 
   </div>
 
 </section>
 
+
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
-  <a class="brand" href="#top">
+  <a
+    class="brand"
+    href="#top"
+  >
 
     <img
       src="logo.png"
@@ -1061,9 +1510,12 @@ footer .brand{
 
   </a>
 
+
   <p>
-    © <span id="year"></span> Made in Maglie
+    © <span id="year"></span>
+    Made in Maglie
   </p>
+
 
   <a href="#top">
     Torna su ↑
@@ -1072,12 +1524,16 @@ footer .brand{
 </footer>
 
 
-<!-- SUPABASE -->
+
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
+
 
 /* =========================================================
    CONFIGURAZIONE SUPABASE
@@ -1085,6 +1541,7 @@ footer .brand{
 
 const SUPABASE_URL =
   "https://mjfciizbtoiruokdiqef.supabase.co";
+
 
 const SUPABASE_KEY =
   "sb_publishable_dqzihDMJlD5uPK7u080DpA_pdE9jKdf";
@@ -1097,6 +1554,7 @@ const supabaseClient =
   );
 
 
+
 /* =========================================================
    ATTIVITÀ
    ========================================================= */
@@ -1104,183 +1562,213 @@ const supabaseClient =
 const businesses = [
 
   {
-    name: "Candido 1859",
-    category: "Moda e stile",
-    address: "Piazza Aldo Moro, 9, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"
+    name:"Candido 1859",
+    category:"Moda e stile",
+    address:"Piazza Aldo Moro, 9, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Amélie Restaurant",
-    category: "Gusto e sapori",
-    address: "Via Giuseppe Garibaldi, 12, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"
+    name:"Amélie Restaurant",
+    category:"Gusto e sapori",
+    address:"Via Giuseppe Garibaldi, 12, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Caffè Leopardi",
-    category: "Gusto e sapori",
-    address: "Via Alcide De Gasperi, 7, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"
+    name:"Caffè Leopardi",
+    category:"Gusto e sapori",
+    address:"Via Alcide De Gasperi, 7, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Corso Vittorio Outlet",
-    category: "Moda e stile",
-    address: "Via Vittorio Emanuele, 119, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"
+    name:"Corso Vittorio Outlet",
+    category:"Moda e stile",
+    address:"Via Vittorio Emanuele, 119, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Belami - Hotel Ristorante Cantina",
-    category: "Gusto e ospitalità",
-    address: "Via Roma, 86, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"
+    name:"Belami - Hotel Ristorante Cantina",
+    category:"Gusto e ospitalità",
+    address:"Via Roma, 86, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Cubi",
-    category: "Gusto e sapori",
-    address: "Via S. Giuseppe, 12, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"
+    name:"Cubi",
+    category:"Gusto e sapori",
+    address:"Via S. Giuseppe, 12, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "ONCE",
-    category: "Arte e artigianato",
-    address: "Via Fratelli Piccinno, 90, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"
+    name:"ONCE",
+    category:"Arte e artigianato",
+    address:"Via Fratelli Piccinno, 90, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "CRiS&CO",
-    category: "Moda e stile",
-    address: "Via Umberto I, 51, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"
+    name:"CRiS&CO",
+    category:"Moda e stile",
+    address:"Via Umberto I, 51, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Classico Maglie",
-    category: "Gusto e sapori",
-    address: "Piazza Aldo Moro, 22, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"
+    name:"Classico Maglie",
+    category:"Gusto e sapori",
+    address:"Piazza Aldo Moro, 22, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Caffè della Libertà",
-    category: "Gusto e sapori",
-    address: "Piazza Aldo Moro, 16, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"
+    name:"Caffè della Libertà",
+    category:"Gusto e sapori",
+    address:"Piazza Aldo Moro, 16, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "La Sellerie Limited",
-    category: "Moda e stile",
-    address: "Via Giacomo Matteotti, 15, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"
+    name:"La Sellerie Limited",
+    category:"Moda e stile",
+    address:"Via Giacomo Matteotti, 15, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Negro Service - Punto Edison Maglie",
-    category: "Servizi",
-    address: "Via Scorrano, 5, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"
+    name:"Negro Service - Punto Edison Maglie",
+    category:"Servizi",
+    address:"Via Scorrano, 5, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "TRENDY",
-    category: "Moda e stile",
-    address: "Via Francesca Capece, 12, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"
+    name:"TRENDY",
+    category:"Moda e stile",
+    address:"Via Francesca Capece, 12, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"
   },
 
   {
-    name: "Maglie Territorio Ambiente Servizi",
-    category: "Servizi",
-    address: "Via Indipendenza, 5, 73024 Maglie LE",
-    maps: "https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"
+    name:"Maglie Territorio Ambiente Servizi",
+    category:"Servizi",
+    address:"Via Indipendenza, 5, 73024 Maglie LE",
+    maps:"https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"
   }
 
 ];
 
 
+
 /* =========================================================
-   RICERCA E FILTRI
+   ATTIVITÀ + FILTRI
    ========================================================= */
 
 const grid =
-  document.getElementById("business-grid");
+  document.getElementById(
+    "business-grid"
+  );
 
-const filters =
-  document.getElementById("filters");
 
 const search =
-  document.getElementById("search");
+  document.getElementById(
+    "search"
+  );
 
-let currentCategory = "Tutte";
+
+const filters =
+  document.getElementById(
+    "filters"
+  );
 
 
-const categories = [
-  "Tutte",
-  ...new Set(
-    businesses.map(
-      business => business.category
+let activeCategory =
+  "Tutte";
+
+
+const categories =
+  [
+    "Tutte",
+    ...new Set(
+      businesses.map(
+        business =>
+          business.category
+      )
     )
-  )
-];
+  ];
 
 
-categories.forEach(category => {
 
-  const button =
-    document.createElement("button");
+filters.innerHTML =
+  categories
+    .map(
+      category => `
 
-  button.className =
-    "filter" +
-    (
-      category === "Tutte"
-        ? " active"
-        : ""
-    );
+        <button
+          type="button"
+          class="filter ${
+            category === "Tutte"
+              ? "active"
+              : ""
+          }"
+          data-category="${category}"
+        >
+          ${category}
+        </button>
 
-  button.textContent =
-    category;
+      `
+    )
+    .join("");
 
-  button.type =
-    "button";
 
-  button.addEventListener(
-    "click",
-    () => {
 
-      currentCategory =
-        category;
+filters
+  .querySelectorAll(".filter")
+  .forEach(
+    button => {
 
-      document
-        .querySelectorAll(".filter")
-        .forEach(
-          item =>
-            item.classList.remove("active")
-        );
+      button.addEventListener(
+        "click",
+        () => {
 
-      button.classList.add("active");
+          filters
+            .querySelectorAll(".filter")
+            .forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
 
-      renderBusinesses();
+
+          button.classList.add(
+            "active"
+          );
+
+
+          activeCategory =
+            button.dataset.category;
+
+
+          renderBusinesses();
+
+        }
+      );
 
     }
   );
 
-  filters.appendChild(button);
-
-});
 
 
 function renderBusinesses(){
 
   const query =
     search.value
-      .trim()
-      .toLowerCase();
+      .toLowerCase()
+      .trim();
 
 
   const list =
@@ -1288,8 +1776,10 @@ function renderBusinesses(){
       business => {
 
         const matchesCategory =
-          currentCategory === "Tutte" ||
-          business.category === currentCategory;
+          activeCategory === "Tutte" ||
+          business.category ===
+            activeCategory;
+
 
         const searchableText =
           (
@@ -1300,8 +1790,12 @@ function renderBusinesses(){
             business.address
           ).toLowerCase();
 
+
         const matchesSearch =
-          searchableText.includes(query);
+          searchableText.includes(
+            query
+          );
+
 
         return (
           matchesCategory &&
@@ -1315,9 +1809,11 @@ function renderBusinesses(){
   if(!list.length){
 
     grid.innerHTML = `
+
       <div class="empty">
         Nessuna attività trovata.
       </div>
+
     `;
 
     return;
@@ -1325,38 +1821,40 @@ function renderBusinesses(){
 
 
   grid.innerHTML =
-    list.map(
-      business => `
+    list
+      .map(
+        business => `
 
-        <a
-          class="business-card"
-          href="${business.maps}"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Apri ${business.name} su Google Maps"
-        >
+          <a
+            class="business-card"
+            href="${business.maps}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apri ${business.name} su Google Maps"
+          >
 
-          <span class="badge">
-            ${business.category}
-          </span>
+            <span class="badge">
+              ${business.category}
+            </span>
 
-          <h3>
-            ${business.name}
-          </h3>
+            <h3>
+              ${business.name}
+            </h3>
 
-          <div class="address">
-            ${business.address}
-          </div>
+            <div class="address">
+              ${business.address}
+            </div>
 
-          <span class="card-link">
-            Apri su Google Maps
-            <span>↗</span>
-          </span>
+            <span class="card-link">
+              Apri su Google Maps
+              <span>↗</span>
+            </span>
 
-        </a>
+          </a>
 
-      `
-    ).join("");
+        `
+      )
+      .join("");
 
 }
 
@@ -1367,15 +1865,21 @@ search.addEventListener(
 );
 
 
+
 /* =========================================================
-   GESTIONE ALLEGATO
+   FILE
    ========================================================= */
 
 const fileInput =
-  document.getElementById("ticket-file");
+  document.getElementById(
+    "ticket-file"
+  );
+
 
 const fileName =
-  document.getElementById("file-name");
+  document.getElementById(
+    "file-name"
+  );
 
 
 fileInput.addEventListener(
@@ -1384,6 +1888,7 @@ fileInput.addEventListener(
 
     const file =
       fileInput.files[0];
+
 
     if(!file){
 
@@ -1403,8 +1908,10 @@ fileInput.addEventListener(
       fileName.textContent =
         "File troppo grande. Massimo 5 MB.";
 
+
       fileInput.value =
         "";
+
 
       return;
     }
@@ -1413,11 +1920,14 @@ fileInput.addEventListener(
     fileName.textContent =
       file.name +
       " (" +
-      formatFileSize(file.size) +
+      formatFileSize(
+        file.size
+      ) +
       ")";
 
   }
 );
+
 
 
 function formatFileSize(bytes){
@@ -1428,35 +1938,53 @@ function formatFileSize(bytes){
 
   }
 
-  if(bytes < 1024 * 1024){
+
+  if(
+    bytes <
+    1024 * 1024
+  ){
 
     return (
-      (bytes / 1024).toFixed(1) +
+      (bytes / 1024)
+        .toFixed(1) +
       " KB"
     );
 
   }
 
+
   return (
-    (bytes / (1024 * 1024)).toFixed(1) +
+    (bytes /
+      (1024 * 1024))
+      .toFixed(1) +
     " MB"
   );
 
 }
 
 
+
 /* =========================================================
-   INVIO TICKET
+   TICKET
    ========================================================= */
 
 const ticketForm =
-  document.getElementById("ticket-form");
+  document.getElementById(
+    "ticket-form"
+  );
+
 
 const successBox =
-  document.getElementById("ticket-success");
+  document.getElementById(
+    "ticket-success"
+  );
+
 
 const errorBox =
-  document.getElementById("ticket-error");
+  document.getElementById(
+    "ticket-error"
+  );
+
 
 
 ticketForm.addEventListener(
@@ -1468,6 +1996,7 @@ ticketForm.addEventListener(
 
     successBox.style.display =
       "none";
+
 
     errorBox.style.display =
       "none";
@@ -1481,43 +2010,57 @@ ticketForm.addEventListener(
 
     const name =
       document
-        .getElementById("ticket-name")
+        .getElementById(
+          "ticket-name"
+        )
         .value
         .trim();
 
 
     const email =
       document
-        .getElementById("ticket-email")
+        .getElementById(
+          "ticket-email"
+        )
         .value
         .trim();
 
 
     const category =
       document
-        .getElementById("ticket-category")
+        .getElementById(
+          "ticket-category"
+        )
         .value;
 
 
     const title =
       document
-        .getElementById("ticket-title")
+        .getElementById(
+          "ticket-title"
+        )
         .value
         .trim();
 
 
     const description =
       document
-        .getElementById("ticket-description")
+        .getElementById(
+          "ticket-description"
+        )
         .value
         .trim();
 
 
     const file =
-      fileInput.files[0] || null;
+      fileInput.files[0] ||
+      null;
 
 
-    /* CONTROLLO FILE */
+
+    /* =====================================================
+       CONTROLLO FILE
+       ===================================================== */
 
     if(file){
 
@@ -1566,77 +2109,47 @@ ticketForm.addEventListener(
     }
 
 
+
+    /* =====================================================
+       BLOCCO BOTTONE
+       ===================================================== */
+
     button.disabled =
       true;
+
 
     button.textContent =
       "Invio in corso...";
 
 
+
     try{
 
 
-      /* =====================================================
-         1. CREAZIONE TICKET
-         ===================================================== */
+      /* ===================================================
+         GENERAZIONE CODICE TICKET
+         =================================================== */
 
-      const {
-        data,
-        error
-      } = await supabaseClient
-
-        .from("tickets")
-
-        .insert([
-
-          {
-            name: name,
-
-            email: email,
-
-            category: category,
-
-            title: title,
-
-            description: description,
-
-            status: "nuovo",
-
-            page_url:
-              window.location.href
-
-          }
-
-        ])
-
-        .select()
-
-        .single();
+      const ticketCode =
+        "MM-" +
+        Date.now()
+          .toString(36)
+          .toUpperCase() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2,7)
+          .toUpperCase();
 
 
-      if(error){
 
-        console.error(
-          "Errore creazione ticket:",
-          error
-        );
-
-        throw error;
-
-      }
-
-
-      const ticketId =
-        data.id;
-
+      /* ===================================================
+         NOME ALLEGATO
+         =================================================== */
 
       let attachmentPath =
         null;
 
-
-      /* =====================================================
-         2. UPLOAD ALLEGATO
-         ===================================================== */
 
       if(file){
 
@@ -1648,13 +2161,87 @@ ticketForm.addEventListener(
             );
 
 
-        const filePath =
-          ticketId +
+        attachmentPath =
+          ticketCode +
           "/" +
           Date.now() +
           "_" +
           safeFileName;
 
+      }
+
+
+
+      /* ===================================================
+         CREAZIONE TICKET
+
+         IMPORTANTE:
+         NON utilizziamo .select()
+
+         In questo modo non serve il permesso
+         SELECT pubblico sulla tabella.
+         =================================================== */
+
+      const {
+        error: insertError
+      } = await supabaseClient
+
+        .from("tickets")
+
+        .insert({
+
+          name:
+            name,
+
+          email:
+            email,
+
+          category:
+            category,
+
+          title:
+            title,
+
+          description:
+            description,
+
+          status:
+            "nuovo",
+
+          page_url:
+            window.location.href,
+
+          attachment_path:
+            attachmentPath,
+
+          ticket_code:
+            ticketCode
+
+        });
+
+
+      if(insertError){
+
+        console.error(
+          "Errore Supabase:",
+          insertError
+        );
+
+
+        throw new Error(
+          insertError.message ||
+          "Impossibile creare il ticket."
+        );
+
+      }
+
+
+
+      /* ===================================================
+         UPLOAD ALLEGATO
+         =================================================== */
+
+      if(file){
 
         const {
           error: uploadError
@@ -1662,15 +2249,28 @@ ticketForm.addEventListener(
 
           .storage
 
-          .from("ticket-allegati")
+          .from(
+            "ticket-allegati"
+          )
 
           .upload(
-            filePath,
+
+            attachmentPath,
+
             file,
+
             {
-              cacheControl: "3600",
-              upsert: false
+              cacheControl:
+                "3600",
+
+              upsert:
+                false,
+
+              contentType:
+                file.type
+
             }
+
           );
 
 
@@ -1681,43 +2281,9 @@ ticketForm.addEventListener(
             uploadError
           );
 
+
           throw new Error(
             "Il ticket è stato creato, ma l'allegato non è stato caricato."
-          );
-
-        }
-
-
-        attachmentPath =
-          filePath;
-
-
-        /* =================================================
-           3. SALVATAGGIO PERCORSO ALLEGATO
-           ================================================= */
-
-        const {
-          error: updateError
-        } = await supabaseClient
-
-          .from("tickets")
-
-          .update({
-            attachment_path:
-              attachmentPath
-          })
-
-          .eq(
-            "id",
-            ticketId
-          );
-
-
-        if(updateError){
-
-          console.error(
-            "Errore salvataggio allegato:",
-            updateError
           );
 
         }
@@ -1725,21 +2291,10 @@ ticketForm.addEventListener(
       }
 
 
-      /* =====================================================
-         4. NUMERO TICKET
-         ===================================================== */
 
-      const ticketNumber =
-        String(ticketId)
-          .padStart(
-            4,
-            "0"
-          );
-
-
-      /* =====================================================
-         5. MESSAGGIO SUCCESSO
-         ===================================================== */
+      /* ===================================================
+         SUCCESSO
+         =================================================== */
 
       successBox.innerHTML = `
 
@@ -1752,13 +2307,18 @@ ticketForm.addEventListener(
         Il tuo numero ticket è:
 
         <strong>
-          #${ticketNumber}
+          #${ticketCode}
         </strong>
 
         <br><br>
 
         La richiesta è stata registrata
         e verrà presa in carico.
+
+        <br><br>
+
+        Conserva questo codice
+        per eventuali comunicazioni.
 
       `;
 
@@ -1767,16 +2327,12 @@ ticketForm.addEventListener(
         "block";
 
 
-      /* RESET */
-
       ticketForm.reset();
 
 
       fileName.textContent =
         "Nessun file selezionato";
 
-
-      /* SCROLL AL MESSAGGIO */
 
       successBox.scrollIntoView({
         behavior:"smooth",
@@ -1803,6 +2359,7 @@ ticketForm.addEventListener(
       button.disabled =
         false;
 
+
       button.textContent =
         "Apri ticket →";
 
@@ -1812,21 +2369,25 @@ ticketForm.addEventListener(
 );
 
 
+
 /* =========================================================
-   MESSAGGIO ERRORE
+   ERRORE
    ========================================================= */
 
 function showError(message){
 
   errorBox.innerHTML = `
+
     <strong>
       Errore
     </strong>
 
     <br><br>
 
-    ${message}
+    ${escapeHtml(message)}
+
   `;
+
 
   errorBox.style.display =
     "block";
@@ -1834,14 +2395,37 @@ function showError(message){
 }
 
 
+
 /* =========================================================
-   ANNO FOOTER
+   SICUREZZA TESTO ERRORE
+   ========================================================= */
+
+function escapeHtml(text){
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+  div.textContent =
+    text;
+
+  return div.innerHTML;
+
+}
+
+
+
+/* =========================================================
+   ANNO
    ========================================================= */
 
 document.getElementById(
   "year"
 ).textContent =
-  new Date().getFullYear();
+  new Date()
+    .getFullYear();
+
 
 
 /* =========================================================
@@ -1850,7 +2434,10 @@ document.getElementById(
 
 renderBusinesses();
 
+
 </script>
 
+
 </body>
+
 </html>
