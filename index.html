@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="icon" type="image/png" href="logo.png">
-<meta name="description" content="Made in Maglie: la vetrina digitale delle attività locali di Maglie.">
+
+<meta
+  name="description"
+  content="Made in Maglie: la vetrina digitale delle attività locali di Maglie."
+>
+
 <title>Made in Maglie — Scegli locale, vivi Maglie</title>
 
 <style>
@@ -17,23 +23,38 @@
   --ink:#162235;
   --muted:#667085;
   --white:#fff;
+  --green:#198754;
+  --red:#c0392b;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   background:var(--cream);
   color:var(--ink);
-  font-family:"DM Sans",sans-serif
+  font-family:"DM Sans",sans-serif;
 }
 
 a{
   color:inherit;
-  text-decoration:none
+  text-decoration:none;
 }
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+/* HEADER */
 
 .site-header{
   position:sticky;
@@ -45,7 +66,7 @@ a{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 5vw
+  padding:12px 5vw;
 }
 
 .brand{
@@ -53,33 +74,36 @@ a{
   align-items:center;
   gap:12px;
   font-weight:700;
-  color:var(--blue)
+  color:var(--blue);
 }
 
 .brand img{
   width:58px;
   height:58px;
   object-fit:cover;
-  border-radius:50%
+  border-radius:50%;
 }
 
 .nav-links{
   display:flex;
-  gap:26px;
+  gap:24px;
   align-items:center;
-  font-weight:600
+  font-weight:600;
+  flex-wrap:wrap;
 }
 
 .nav-links a:hover{
-  color:var(--gold)
+  color:var(--gold);
 }
 
 .nav-cta{
   padding:11px 17px;
   background:var(--blue);
   color:#fff!important;
-  border-radius:999px
+  border-radius:999px;
 }
+
+/* HERO */
 
 .hero{
   max-width:1200px;
@@ -88,44 +112,46 @@ a{
   display:grid;
   grid-template-columns:1.1fr .9fr;
   gap:45px;
-  align-items:center
+  align-items:center;
 }
 
 .eyebrow{
   color:var(--gold);
   font-weight:700;
   letter-spacing:.13em;
-  font-size:.78rem
+  font-size:.78rem;
 }
 
-h1,h2{
+h1,
+h2{
   font-family:Fraunces,serif;
   color:var(--blue);
-  line-height:1.02
+  line-height:1.02;
 }
 
 h1{
   font-size:clamp(3rem,6vw,5.8rem);
-  margin:15px 0 25px
+  margin:15px 0 25px;
 }
 
-h1 em,h2 em{
+h1 em,
+h2 em{
   color:var(--gold);
-  font-style:normal
+  font-style:normal;
 }
 
 .hero-intro{
   font-size:1.12rem;
   line-height:1.7;
   max-width:650px;
-  color:#4c586b
+  color:#4c586b;
 }
 
 .hero-actions{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin:28px 0
+  margin:28px 0;
 }
 
 .button{
@@ -134,34 +160,36 @@ h1 em,h2 em{
   gap:10px;
   padding:14px 20px;
   border-radius:999px;
-  font-weight:700
+  font-weight:700;
 }
 
 .button-primary{
   background:var(--blue);
-  color:#fff
+  color:#fff;
 }
 
 .button-secondary{
   border:1px solid var(--blue);
-  color:var(--blue)
+  color:var(--blue);
 }
 
 .hero-logo{
   display:flex;
-  justify-content:center
+  justify-content:center;
 }
 
 .hero-logo img{
   width:min(430px,90%);
   border-radius:50%;
-  box-shadow:0 24px 60px rgba(16,47,87,.16)
+  box-shadow:0 24px 60px rgba(16,47,87,.16);
 }
+
+/* SECTIONS */
 
 .section-wrap{
   max-width:1200px;
   margin:auto;
-  padding:75px 5vw
+  padding:75px 5vw;
 }
 
 .section-heading{
@@ -169,38 +197,40 @@ h1 em,h2 em{
   justify-content:space-between;
   gap:40px;
   align-items:end;
-  margin-bottom:35px
+  margin-bottom:35px;
 }
 
 .section-heading h2{
   font-size:clamp(2.3rem,4vw,4rem);
-  margin:8px 0
+  margin:8px 0;
 }
 
 .section-heading p{
   max-width:440px;
   line-height:1.7;
-  color:var(--muted)
+  color:var(--muted);
 }
+
+/* ATTIVITA */
 
 .categories{
   background:var(--blue);
-  color:#fff
+  color:#fff;
 }
 
 .categories h2{
-  color:#fff
+  color:#fff;
 }
 
 .heading-light p{
-  color:#d4dbe5
+  color:#d4dbe5;
 }
 
 .filters{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin:0 0 28px
+  margin:0 0 28px;
 }
 
 .filter{
@@ -210,13 +240,13 @@ h1 em,h2 em{
   padding:10px 15px;
   border-radius:999px;
   cursor:pointer;
-  font:inherit
 }
 
-.filter.active,.filter:hover{
+.filter.active,
+.filter:hover{
   background:var(--gold);
   border-color:var(--gold);
-  color:#fff
+  color:#fff;
 }
 
 .search{
@@ -227,18 +257,17 @@ h1 em,h2 em{
   color:#fff;
   border-radius:14px;
   margin-bottom:18px;
-  font:inherit;
-  outline:none
+  outline:none;
 }
 
 .search::placeholder{
-  color:#cbd5e1
+  color:#cbd5e1;
 }
 
 .business-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px
+  gap:18px;
 }
 
 .business-card{
@@ -250,12 +279,12 @@ h1 em,h2 em{
   flex-direction:column;
   min-height:225px;
   transition:.2s;
-  box-shadow:0 8px 25px rgba(0,0,0,.08)
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .business-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(0,0,0,.14)
+  box-shadow:0 15px 35px rgba(0,0,0,.14);
 }
 
 .badge{
@@ -263,21 +292,21 @@ h1 em,h2 em{
   font-weight:700;
   font-size:.78rem;
   text-transform:uppercase;
-  letter-spacing:.08em
+  letter-spacing:.08em;
 }
 
 .business-card h3{
   font-family:Fraunces,serif;
   font-size:1.55rem;
   color:var(--blue);
-  margin:10px 0
+  margin:10px 0;
 }
 
 .address{
   color:var(--muted);
   line-height:1.5;
   font-size:.92rem;
-  margin-bottom:20px
+  margin-bottom:20px;
 }
 
 .card-link{
@@ -286,159 +315,206 @@ h1 em,h2 em{
   justify-content:space-between;
   align-items:center;
   color:var(--blue);
-  font-weight:700
+  font-weight:700;
 }
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:40px;
+  color:#d4dbe5;
+}
+
+/* PROGETTO */
 
 .intro-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px
+  gap:20px;
 }
 
 .info{
   padding:28px;
   border:1px solid rgba(16,47,87,.1);
   border-radius:18px;
-  background:#fff
+  background:#fff;
 }
 
 .info .number{
   color:var(--gold);
-  font-weight:700
+  font-weight:700;
 }
 
 .info h3{
-  color:var(--blue)
+  color:var(--blue);
 }
 
-/* =========================
-   SEZIONE SUGGERISCI
-========================= */
+/* PARTECIPA */
+
+.participate-section{
+  background:#fff;
+}
+
+.participate-box{
+  max-width:800px;
+}
+
+/* SUGGERISCI */
 
 .suggest-section{
-  background:#fff
-}
-
-.suggest-section h2{
-  font-size:clamp(2.4rem,5vw,4.5rem);
-  max-width:850px
+  background:#f0ece4;
 }
 
 .suggest-intro{
-  max-width:700px;
-  color:var(--muted);
+  max-width:720px;
   line-height:1.7;
-  font-size:1.05rem
+  color:var(--muted);
+  margin-bottom:30px;
 }
 
 .ticket-form{
-  max-width:850px;
-  margin-top:35px;
-  background:var(--cream);
-  padding:30px;
+  max-width:900px;
+  background:#fff;
   border-radius:24px;
-  border:1px solid rgba(16,47,87,.1)
+  padding:32px;
+  box-shadow:0 12px 40px rgba(16,47,87,.08);
 }
 
 .form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px
+  gap:20px;
 }
 
 .form-field{
   display:flex;
   flex-direction:column;
-  gap:8px
+  gap:8px;
 }
 
 .form-field.full{
-  grid-column:1/-1
+  grid-column:1/-1;
 }
 
 .form-field label{
   font-weight:700;
-  color:var(--blue)
+  color:var(--blue);
 }
 
 .form-field input,
 .form-field select,
 .form-field textarea{
   width:100%;
-  padding:14px 16px;
-  border:1px solid rgba(16,47,87,.18);
+  border:1px solid #d8dde5;
   border-radius:12px;
+  padding:14px 15px;
   background:#fff;
   color:var(--ink);
-  font:inherit;
-  outline:none
+  outline:none;
+  transition:.2s;
 }
 
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus{
   border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(197,154,72,.12)
+  box-shadow:0 0 0 3px rgba(197,154,72,.12);
 }
 
 .form-field textarea{
   min-height:150px;
-  resize:vertical
+  resize:vertical;
 }
 
 .file-box{
-  border:1.5px dashed rgba(16,47,87,.3);
+  border:2px dashed #d8dde5;
   border-radius:14px;
-  padding:20px;
-  background:#fff
+  padding:18px;
+  background:#fafafa;
 }
 
-.file-box small{
+.file-box input{
+  border:0;
+  padding:0;
+  background:transparent;
+}
+
+.file-info{
   display:block;
+  margin-top:8px;
   color:var(--muted);
-  margin-top:7px;
-  line-height:1.5
-}
-
-.file-name{
-  margin-top:10px;
-  color:var(--blue);
-  font-weight:600;
-  font-size:.9rem
+  font-size:.9rem;
 }
 
 .ticket-submit{
-  margin-top:20px;
+  margin-top:25px;
   border:0;
-  cursor:pointer
+  cursor:pointer;
+  background:var(--blue);
+  color:#fff;
+  padding:15px 22px;
+  border-radius:999px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.ticket-submit:hover{
+  background:#173f73;
+}
+
+.ticket-submit:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 .ticket-note{
-  font-size:.85rem;
+  margin-top:18px;
   color:var(--muted);
-  line-height:1.5;
-  margin-top:14px
+  font-size:.88rem;
+  line-height:1.6;
 }
 
-/* =========================
-   CONTATTI
-========================= */
+.ticket-success{
+  display:none;
+  margin-top:20px;
+  padding:18px;
+  border-radius:14px;
+  background:#eaf7ef;
+  color:#176b3a;
+  font-weight:600;
+  line-height:1.6;
+}
+
+.ticket-error{
+  display:none;
+  margin-top:20px;
+  padding:18px;
+  border-radius:14px;
+  background:#fdeeee;
+  color:#9f2d25;
+  font-weight:600;
+  line-height:1.6;
+}
+
+/* CONTATTI */
 
 .contact-section{
   background:#102f57;
-  color:#fff
+  color:#fff;
 }
 
 .contact-section h2{
   color:#fff;
-  font-size:clamp(2.4rem,5vw,4.5rem)
+  font-size:clamp(2.4rem,5vw,4.5rem);
 }
 
 .contact-section p{
   color:#d4dbe5;
   max-width:650px;
-  line-height:1.7
+  line-height:1.7;
 }
+
+/* FOOTER */
 
 footer{
   display:flex;
@@ -447,38 +523,41 @@ footer{
   gap:20px;
   padding:25px 5vw;
   background:#0c2341;
-  color:#fff
+  color:#fff;
 }
 
 footer .brand{
-  color:#fff
+  color:#fff;
 }
 
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:40px;
-  color:#d4dbe5
-}
+/* RESPONSIVE */
 
 @media(max-width:850px){
 
   .hero{
     grid-template-columns:1fr;
-    padding-top:45px
+    padding-top:45px;
   }
 
   .business-grid,
   .intro-grid{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   .section-heading{
-    display:block
+    display:block;
   }
 
   .nav-links{
-    display:none
+    gap:12px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-field.full{
+    grid-column:auto;
   }
 }
 
@@ -486,27 +565,32 @@ footer .brand{
 
   .business-grid,
   .intro-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .hero-logo img{
-    width:75%
+    width:75%;
   }
 
   footer{
-    flex-direction:column
+    flex-direction:column;
   }
 
-  .form-grid{
-    grid-template-columns:1fr
+  .site-header{
+    padding:10px 4vw;
   }
 
-  .form-field.full{
-    grid-column:auto
+  .brand img{
+    width:48px;
+    height:48px;
+  }
+
+  .nav-links{
+    display:none;
   }
 
   .ticket-form{
-    padding:20px
+    padding:22px;
   }
 }
 </style>
@@ -516,23 +600,20 @@ footer .brand{
 
 <header class="site-header">
 
-<a class="brand" href="#top">
-<img src="logo.png" alt="Logo Made in Maglie">
-<span>Made in Maglie</span>
-</a>
+  <a class="brand" href="#top">
+    <img src="logo.png" alt="Logo Made in Maglie">
+    <span>Made in Maglie</span>
+  </a>
 
-<nav class="nav-links" aria-label="Navigazione principale">
-
-<a href="#attivita">Attività</a>
-<a href="#categorie">Categorie</a>
-<a href="#suggerisci">Suggerisci</a>
-<a href="#partecipa">Partecipa</a>
-<a class="nav-cta" href="#contatti">Contatti</a>
-
-</nav>
+  <nav class="nav-links" aria-label="Navigazione principale">
+    <a href="#attivita">Attività</a>
+    <a href="#categorie">Categorie</a>
+    <a href="#partecipa">Partecipa</a>
+    <a href="#suggerisci">Suggerisci</a>
+    <a class="nav-cta" href="#contatti">Contatti</a>
+  </nav>
 
 </header>
-
 
 <main id="top">
 
@@ -540,77 +621,82 @@ footer .brand{
 
 <section class="hero">
 
-<div>
+  <div>
 
-<p class="eyebrow">LA VETRINA DIGITALE DI MAGLIE</p>
+    <p class="eyebrow">
+      LA VETRINA DIGITALE DI MAGLIE
+    </p>
 
-<h1>
-Le storie più belle si trovano
-<em>vicino a te.</em>
-</h1>
+    <h1>
+      Le storie più belle si trovano <em>vicino a te.</em>
+    </h1>
 
-<p class="hero-intro">
-Made in Maglie raccoglie le attività del territorio in un'unica vetrina.
-Cerca un'attività, scegli una categoria e apri direttamente la sua posizione su Google Maps.
-</p>
+    <p class="hero-intro">
+      Made in Maglie raccoglie le attività del territorio in un'unica
+      vetrina. Cerca un'attività, scegli una categoria e apri direttamente
+      la sua posizione su Google Maps.
+    </p>
 
-<div class="hero-actions">
+    <div class="hero-actions">
 
-<a class="button button-primary" href="#attivita">
-Scopri le attività ↓
-</a>
+      <a class="button button-primary" href="#attivita">
+        Scopri le attività ↓
+      </a>
 
-<a class="button button-secondary" href="#partecipa">
-Entra nella vetrina
-</a>
+      <a class="button button-secondary" href="#partecipa">
+        Entra nella vetrina
+      </a>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
-<div class="hero-logo">
-<img src="logo.png" alt="Made in Maglie">
-</div>
+  <div class="hero-logo">
+    <img src="logo.png" alt="Made in Maglie">
+  </div>
 
 </section>
 
 
-<!-- ATTIVITÀ -->
+<!-- ATTIVITA -->
 
 <section id="attivita" class="categories">
 
-<div class="section-wrap">
+  <div class="section-wrap">
 
-<p class="eyebrow">ATTIVITÀ LOCALI</p>
+    <p class="eyebrow">
+      ATTIVITÀ LOCALI
+    </p>
 
-<div class="section-heading heading-light">
+    <div class="section-heading heading-light">
 
-<div>
-<h2>
-Scopri chi fa vivere
-<em>Maglie.</em>
-</h2>
-</div>
+      <div>
+        <h2>
+          Scopri chi fa vivere <em>Maglie.</em>
+        </h2>
+      </div>
 
-<p>
-Le attività qui sotto sono organizzate per categoria.
-Ogni scheda è cliccabile e apre la ricerca dell'attività su Google Maps.
-</p>
+      <p>
+        Le attività qui sotto sono organizzate per categoria.
+        Ogni scheda è cliccabile e apre la ricerca dell'attività
+        su Google Maps.
+      </p>
 
-</div>
+    </div>
 
-<input
-id="search"
-class="search"
-type="search"
-placeholder="Cerca attività, categoria o indirizzo..."
->
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="Cerca attività, categoria o indirizzo..."
+      aria-label="Cerca attività"
+    >
 
-<div id="filters" class="filters"></div>
+    <div id="filters" class="filters"></div>
 
-<div id="business-grid" class="business-grid"></div>
+    <div id="business-grid" class="business-grid"></div>
 
-</div>
+  </div>
 
 </section>
 
@@ -619,262 +705,315 @@ placeholder="Cerca attività, categoria o indirizzo..."
 
 <section id="categorie" class="section-wrap">
 
-<p class="eyebrow">IL PROGETTO</p>
-
-<div class="section-heading">
-
-<h2>
-Un posto per ogni
-<em>passione.</em>
-</h2>
-
-<p>
-Una guida semplice per scoprire chi crea, accoglie, cucina,
-vende, progetta e lavora a Maglie.
-</p>
-
-</div>
-
-<div class="intro-grid">
-
-<article class="info">
-<span class="number">01</span>
-<h3>Scopri</h3>
-<p>Trova attività locali e servizi del territorio.</p>
-</article>
-
-<article class="info">
-<span class="number">02</span>
-<h3>Conosci</h3>
-<p>Apri la scheda e raggiungi direttamente l'attività.</p>
-</article>
-
-<article class="info">
-<span class="number">03</span>
-<h3>Scegli locale</h3>
-<p>Una scelta quotidiana che aiuta l'economia della città.</p>
-</article>
-
-</div>
-
-</section>
-
-
-<!-- SUGGERISCI -->
-
-<section id="suggerisci" class="section-wrap suggest-section">
-
-<p class="eyebrow">LA TUA IDEA CONTA</p>
-
-<h2>
-Hai un'idea per migliorare
-<em>Made in Maglie?</em>
-</h2>
-
-<p class="suggest-intro">
-Hai trovato qualcosa che manca, vuoi proporre una nuova funzione,
-segnalare un problema o suggerire un'attività da aggiungere?
-Apri un ticket e raccontaci cosa vorresti vedere sul sito.
-</p>
-
-
-<form id="ticket-form" class="ticket-form">
-
-<div class="form-grid">
-
-
-<div class="form-field">
-
-<label for="ticket-name">
-Nome *
-</label>
-
-<input
-id="ticket-name"
-name="name"
-type="text"
-placeholder="Il tuo nome"
-required
->
-
-</div>
-
-
-<div class="form-field">
-
-<label for="ticket-email">
-Email *
-</label>
-
-<input
-id="ticket-email"
-name="email"
-type="email"
-placeholder="La tua email"
-required
->
-
-</div>
-
-
-<div class="form-field">
-
-<label for="ticket-category">
-Categoria *
-</label>
-
-<select
-id="ticket-category"
-name="category"
-required
->
-
-<option value="">
-Seleziona una categoria
-</option>
-
-<option>
-Nuova funzionalità
-</option>
-
-<option>
-Attività commerciale
-</option>
-
-<option>
-Mappa
-</option>
-
-<option>
-Eventi
-</option>
-
-<option>
-Accessibilità
-</option>
-
-<option>
-Segnalazione problema
-</option>
-
-<option>
-Altro
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-field">
-
-<label for="ticket-title">
-Titolo della richiesta *
-</label>
-
-<input
-id="ticket-title"
-name="title"
-type="text"
-placeholder="Es. Aggiungere una sezione eventi"
-required
->
-
-</div>
-
-
-<div class="form-field full">
-
-<label for="ticket-description">
-Descrizione *
-</label>
-
-<textarea
-id="ticket-description"
-name="description"
-placeholder="Descrivi nel modo più chiaro possibile cosa vorresti aggiungere o modificare..."
-required
-></textarea>
-
-</div>
-
-
-<div class="form-field full">
-
-<label for="ticket-file">
-Allegati
-</label>
-
-<div class="file-box">
-
-<input
-id="ticket-file"
-name="file"
-type="file"
-accept="image/*,.pdf"
->
-
-<small>
-Puoi allegare uno screenshot, un'immagine o un PDF.
-</small>
-
-<div
-id="file-name"
-class="file-name"
-></div>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<button
-class="button button-primary ticket-submit"
-type="submit"
->
-Apri ticket →
-</button>
-
-<p class="ticket-note">
-I campi contrassegnati con * sono obbligatori.
-In questa prima versione il modulo è solo dimostrativo:
-il ticket non viene ancora salvato online.
-</p>
-
-</form>
+  <p class="eyebrow">
+    IL PROGETTO
+  </p>
+
+  <div class="section-heading">
+
+    <h2>
+      Un posto per ogni <em>passione.</em>
+    </h2>
+
+    <p>
+      Una guida semplice per scoprire chi crea, accoglie, cucina,
+      vende, progetta e lavora a Maglie.
+    </p>
+
+  </div>
+
+  <div class="intro-grid">
+
+    <article class="info">
+      <span class="number">01</span>
+      <h3>Scopri</h3>
+      <p>
+        Trova attività locali e servizi del territorio.
+      </p>
+    </article>
+
+    <article class="info">
+      <span class="number">02</span>
+      <h3>Conosci</h3>
+      <p>
+        Apri la scheda e raggiungi direttamente l'attività.
+      </p>
+    </article>
+
+    <article class="info">
+      <span class="number">03</span>
+      <h3>Scegli locale</h3>
+      <p>
+        Una scelta quotidiana che aiuta l'economia della città.
+      </p>
+    </article>
+
+  </div>
 
 </section>
 
 
 <!-- PARTECIPA -->
 
-<section id="partecipa" class="section-wrap">
+<section id="partecipa" class="participate-section">
 
-<p class="eyebrow">
-HAI UN'ATTIVITÀ A MAGLIE?
-</p>
+  <div class="section-wrap">
 
-<h2>
-Questo spazio può raccontare anche
-<em>te.</em>
-</h2>
+    <div class="participate-box">
 
-<p
-style="max-width:650px;line-height:1.7;color:#667085"
->
-Inserisci la tua attività nella vetrina Made in Maglie
-e rendi più facile trovarti online.
-</p>
+      <p class="eyebrow">
+        HAI UN'ATTIVITÀ A MAGLIE?
+      </p>
 
-<a
-class="button button-primary"
-href="#contatti"
->
-Voglio partecipare →
-</a>
+      <h2>
+        Questo spazio può raccontare anche <em>te.</em>
+      </h2>
+
+      <p style="max-width:650px;line-height:1.7;color:#667085">
+
+        Inserisci la tua attività nella vetrina Made in Maglie
+        e rendi più facile trovarti online.
+
+      </p>
+
+      <a class="button button-primary" href="#contatti">
+        Voglio partecipare →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SUGGERISCI -->
+
+<section id="suggerisci" class="suggest-section">
+
+  <div class="section-wrap">
+
+    <p class="eyebrow">
+      SUGGERISCI
+    </p>
+
+    <div class="section-heading">
+
+      <div>
+
+        <h2>
+          Hai un'idea per migliorare <em>Made in Maglie?</em>
+        </h2>
+
+      </div>
+
+      <p>
+        Segnalaci un'attività da aggiungere, un problema,
+        una modifica o una nuova idea. La tua richiesta
+        verrà registrata come ticket.
+      </p>
+
+    </div>
+
+
+    <form id="ticket-form" class="ticket-form">
+
+      <div class="form-grid">
+
+
+        <!-- NOME -->
+
+        <div class="form-field">
+
+          <label for="ticket-name">
+            Nome *
+          </label>
+
+          <input
+            id="ticket-name"
+            name="name"
+            type="text"
+            placeholder="Il tuo nome"
+            required
+          >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-field">
+
+          <label for="ticket-email">
+            Email *
+          </label>
+
+          <input
+            id="ticket-email"
+            name="email"
+            type="email"
+            placeholder="nome@email.it"
+            required
+          >
+
+        </div>
+
+
+        <!-- CATEGORIA -->
+
+        <div class="form-field">
+
+          <label for="ticket-category">
+            Categoria *
+          </label>
+
+          <select
+            id="ticket-category"
+            name="category"
+            required
+          >
+
+            <option value="">
+              Seleziona una categoria
+            </option>
+
+            <option value="Nuova funzionalità">
+              Nuova funzionalità
+            </option>
+
+            <option value="Attività commerciale">
+              Attività commerciale
+            </option>
+
+            <option value="Mappa">
+              Mappa
+            </option>
+
+            <option value="Eventi">
+              Eventi
+            </option>
+
+            <option value="Accessibilità">
+              Accessibilità
+            </option>
+
+            <option value="Segnalazione problema">
+              Segnalazione problema
+            </option>
+
+            <option value="Altro">
+              Altro
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- TITOLO -->
+
+        <div class="form-field">
+
+          <label for="ticket-title">
+            Titolo della richiesta *
+          </label>
+
+          <input
+            id="ticket-title"
+            name="title"
+            type="text"
+            placeholder="Es. Aggiungere una nuova attività"
+            required
+          >
+
+        </div>
+
+
+        <!-- DESCRIZIONE -->
+
+        <div class="form-field full">
+
+          <label for="ticket-description">
+            Descrizione *
+          </label>
+
+          <textarea
+            id="ticket-description"
+            name="description"
+            placeholder="Descrivi nel modo più preciso possibile la tua proposta o segnalazione..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- ALLEGATO -->
+
+        <div class="form-field full">
+
+          <label for="ticket-file">
+            Allegato
+          </label>
+
+          <div class="file-box">
+
+            <input
+              id="ticket-file"
+              name="file"
+              type="file"
+              accept="image/*,.pdf"
+            >
+
+            <span
+              id="file-name"
+              class="file-info"
+            >
+              Nessun file selezionato
+            </span>
+
+          </div>
+
+          <small class="file-info">
+            Puoi allegare un'immagine o un PDF. Dimensione massima: 5 MB.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="ticket-submit"
+      >
+        Apri ticket →
+      </button>
+
+
+      <div
+        id="ticket-success"
+        class="ticket-success"
+        role="status"
+      ></div>
+
+
+      <div
+        id="ticket-error"
+        class="ticket-error"
+        role="alert"
+      ></div>
+
+
+      <p class="ticket-note">
+
+        I dati inviati vengono utilizzati per gestire la richiesta.
+        Gli allegati non vengono pubblicati sul sito.
+
+      </p>
+
+    </form>
+
+  </div>
 
 </section>
 
@@ -883,22 +1022,22 @@ Voglio partecipare →
 
 <section id="contatti" class="contact-section">
 
-<div class="section-wrap">
+  <div class="section-wrap">
 
-<p class="eyebrow">
-RESTIAMO IN CONTATTO
-</p>
+    <p class="eyebrow">
+      RESTIAMO IN CONTATTO
+    </p>
 
-<h2>
-Maglie è più bella quando la viviamo insieme.
-</h2>
+    <h2>
+      Maglie è più bella quando la viviamo insieme.
+    </h2>
 
-<p>
-Spazio pronto per aggiungere WhatsApp, Instagram
-e gli altri contatti ufficiali del progetto.
-</p>
+    <p>
+      Spazio pronto per aggiungere WhatsApp, Instagram
+      e gli altri contatti ufficiali del progetto.
+    </p>
 
-</div>
+  </div>
 
 </section>
 
@@ -909,304 +1048,807 @@ e gli altri contatti ufficiali del progetto.
 
 <footer>
 
-<a class="brand" href="#top">
+  <a class="brand" href="#top">
 
-<img
-src="logo.png"
-alt=""
->
+    <img
+      src="logo.png"
+      alt=""
+    >
 
-<span>
-Made in Maglie
-</span>
+    <span>
+      Made in Maglie
+    </span>
 
-</a>
+  </a>
 
-<p>
-© <span id="year"></span> Made in Maglie
-</p>
+  <p>
+    © <span id="year"></span> Made in Maglie
+  </p>
 
-<a href="#top">
-Torna su ↑
-</a>
+  <a href="#top">
+    Torna su ↑
+  </a>
 
 </footer>
 
 
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
 
-/* =========================
+/* =========================================================
+   CONFIGURAZIONE SUPABASE
+   ========================================================= */
+
+const SUPABASE_URL =
+  "https://mjfciizbtoiruokdiqef.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_dqzihDMJlD5uPK7u080DpA_pdE9jKdf";
+
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* =========================================================
    ATTIVITÀ
-========================= */
+   ========================================================= */
 
 const businesses = [
+
   {
-    "name":"Candido 1859",
-    "category":"Moda e stile",
-    "address":"Piazza Aldo Moro, 9, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"
+    name: "Candido 1859",
+    category: "Moda e stile",
+    address: "Piazza Aldo Moro, 9, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Candido%201859%2C%20Piazza%20Aldo%20Moro%2C%209%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Amélie Restaurant",
-    "category":"Gusto e sapori",
-    "address":"Via Giuseppe Garibaldi, 12, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"
+    name: "Amélie Restaurant",
+    category: "Gusto e sapori",
+    address: "Via Giuseppe Garibaldi, 12, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Am%C3%A9lie%20Restaurant%2C%20Via%20Giuseppe%20Garibaldi%2C%2012%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Caffè Leopardi",
-    "category":"Gusto e sapori",
-    "address":"Via Alcide De Gasperi, 7, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"
+    name: "Caffè Leopardi",
+    category: "Gusto e sapori",
+    address: "Via Alcide De Gasperi, 7, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Leopardi%2C%20Via%20Alcide%20De%20Gasperi%2C%207%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Corso Vittorio Outlet",
-    "category":"Moda e stile",
-    "address":"Via Vittorio Emanuele, 119, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"
+    name: "Corso Vittorio Outlet",
+    category: "Moda e stile",
+    address: "Via Vittorio Emanuele, 119, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Corso%20Vittorio%20Outlet%2C%20Via%20Vittorio%20Emanuele%2C%20119%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Belami - Hotel Ristorante Cantina",
-    "category":"Gusto e ospitalità",
-    "address":"Via Roma, 86, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"
+    name: "Belami - Hotel Ristorante Cantina",
+    category: "Gusto e ospitalità",
+    address: "Via Roma, 86, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Belami%20-%20Hotel%20Ristorante%20Cantina%2C%20Via%20Roma%2C%2086%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Cubi",
-    "category":"Gusto e sapori",
-    "address":"Via S. Giuseppe, 12, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"
+    name: "Cubi",
+    category: "Gusto e sapori",
+    address: "Via S. Giuseppe, 12, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Cubi%2C%20Via%20S.%20Giuseppe%2C%2012%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"ONCE",
-    "category":"Arte e artigianato",
-    "address":"Via Fratelli Piccinno, 90, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"
+    name: "ONCE",
+    category: "Arte e artigianato",
+    address: "Via Fratelli Piccinno, 90, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=ONCE%2C%20Via%20Fratelli%20Piccinno%2C%2090%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"CRiS&CO",
-    "category":"Moda e stile",
-    "address":"Via Umberto I, 51, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"
+    name: "CRiS&CO",
+    category: "Moda e stile",
+    address: "Via Umberto I, 51, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=CRiS%26CO%2C%20Via%20Umberto%20I%2C%2051%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Classico Maglie",
-    "category":"Gusto e sapori",
-    "address":"Piazza Aldo Moro, 22, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"
+    name: "Classico Maglie",
+    category: "Gusto e sapori",
+    address: "Piazza Aldo Moro, 22, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Classico%20Maglie%2C%20Piazza%20Aldo%20Moro%2C%2022%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Caffè della Libertà",
-    "category":"Gusto e sapori",
-    "address":"Piazza Aldo Moro, 16, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"
+    name: "Caffè della Libertà",
+    category: "Gusto e sapori",
+    address: "Piazza Aldo Moro, 16, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20della%20Libert%C3%A0%2C%20Piazza%20Aldo%20Moro%2C%2016%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"La Sellerie Limited",
-    "category":"Moda e stile",
-    "address":"Via Giacomo Matteotti, 15, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"
+    name: "La Sellerie Limited",
+    category: "Moda e stile",
+    address: "Via Giacomo Matteotti, 15, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=La%20Sellerie%20Limited%2C%20Via%20Giacomo%20Matteotti%2C%2015%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Negro Service - Punto Edison Maglie",
-    "category":"Servizi",
-    "address":"Via Scorrano, 5, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"
+    name: "Negro Service - Punto Edison Maglie",
+    category: "Servizi",
+    address: "Via Scorrano, 5, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Negro%20Service%20-%20Punto%20Edison%20Maglie%2C%20Via%20Scorrano%2C%205%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"TRENDY",
-    "category":"Moda e stile",
-    "address":"Via Francesca Capece, 12, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"
+    name: "TRENDY",
+    category: "Moda e stile",
+    address: "Via Francesca Capece, 12, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=TRENDY%2C%20Via%20Francesca%20Capece%2C%2012%2C%2073024%20Maglie%20LE"
   },
+
   {
-    "name":"Maglie Territorio Ambiente Servizi",
-    "category":"Servizi",
-    "address":"Via Indipendenza, 5, 73024 Maglie LE",
-    "maps":"https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"
+    name: "Maglie Territorio Ambiente Servizi",
+    category: "Servizi",
+    address: "Via Indipendenza, 5, 73024 Maglie LE",
+    maps: "https://www.google.com/maps/search/?api=1&query=Maglie%20Territorio%20Ambiente%20Servizi%2C%20Via%20Indipendenza%2C%205%2C%2073024%20Maglie%20LE"
   }
+
 ];
 
 
-const grid = document.getElementById("business-grid");
-const filters = document.getElementById("filters");
-const search = document.getElementById("search");
+/* =========================================================
+   RICERCA E FILTRI
+   ========================================================= */
+
+const grid =
+  document.getElementById("business-grid");
+
+const filters =
+  document.getElementById("filters");
+
+const search =
+  document.getElementById("search");
 
 let currentCategory = "Tutte";
 
 
 const categories = [
   "Tutte",
-  ...new Set(businesses.map(b => b.category))
+  ...new Set(
+    businesses.map(
+      business => business.category
+    )
+  )
 ];
 
 
-categories.forEach(cat => {
+categories.forEach(category => {
 
-  const btn = document.createElement("button");
+  const button =
+    document.createElement("button");
 
-  btn.className =
+  button.className =
     "filter" +
-    (cat === "Tutte" ? " active" : "");
+    (
+      category === "Tutte"
+        ? " active"
+        : ""
+    );
 
-  btn.textContent = cat;
+  button.textContent =
+    category;
 
-  btn.type = "button";
+  button.type =
+    "button";
 
-  btn.onclick = () => {
+  button.addEventListener(
+    "click",
+    () => {
 
-    currentCategory = cat;
+      currentCategory =
+        category;
 
-    document
-      .querySelectorAll(".filter")
-      .forEach(b => b.classList.remove("active"));
+      document
+        .querySelectorAll(".filter")
+        .forEach(
+          item =>
+            item.classList.remove("active")
+        );
 
-    btn.classList.add("active");
+      button.classList.add("active");
 
-    render();
+      renderBusinesses();
 
-  };
+    }
+  );
 
-  filters.appendChild(btn);
+  filters.appendChild(button);
 
 });
 
 
-function render(){
+function renderBusinesses(){
 
-  const q =
-    search.value.trim().toLowerCase();
+  const query =
+    search.value
+      .trim()
+      .toLowerCase();
+
 
   const list =
-    businesses.filter(b =>
+    businesses.filter(
+      business => {
 
-      (
-        currentCategory === "Tutte" ||
-        b.category === currentCategory
-      )
+        const matchesCategory =
+          currentCategory === "Tutte" ||
+          business.category === currentCategory;
 
-      &&
+        const searchableText =
+          (
+            business.name +
+            " " +
+            business.category +
+            " " +
+            business.address
+          ).toLowerCase();
 
-      (
-        b.name +
-        " " +
-        b.category +
-        " " +
-        b.address
-      )
-      .toLowerCase()
-      .includes(q)
+        const matchesSearch =
+          searchableText.includes(query);
 
+        return (
+          matchesCategory &&
+          matchesSearch
+        );
+
+      }
     );
 
 
-  grid.innerHTML = list.length
+  if(!list.length){
 
-    ?
-
-    list.map(b => `
-
-      <a
-        class="business-card"
-        href="${b.maps}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Apri ${b.name} su Google Maps"
-      >
-
-        <span class="badge">
-          ${b.category}
-        </span>
-
-        <h3>
-          ${b.name}
-        </h3>
-
-        <div class="address">
-          ${b.address}
-        </div>
-
-        <span class="card-link">
-          Apri su Google Maps
-          <span>↗</span>
-        </span>
-
-      </a>
-
-    `).join("")
-
-    :
-
-    `
+    grid.innerHTML = `
       <div class="empty">
         Nessuna attività trovata.
       </div>
     `;
+
+    return;
+  }
+
+
+  grid.innerHTML =
+    list.map(
+      business => `
+
+        <a
+          class="business-card"
+          href="${business.maps}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apri ${business.name} su Google Maps"
+        >
+
+          <span class="badge">
+            ${business.category}
+          </span>
+
+          <h3>
+            ${business.name}
+          </h3>
+
+          <div class="address">
+            ${business.address}
+          </div>
+
+          <span class="card-link">
+            Apri su Google Maps
+            <span>↗</span>
+          </span>
+
+        </a>
+
+      `
+    ).join("");
+
 }
 
 
 search.addEventListener(
   "input",
-  render
+  renderBusinesses
 );
 
 
-/* =========================
-   TICKET
-========================= */
+/* =========================================================
+   GESTIONE ALLEGATO
+   ========================================================= */
 
-const ticketFile =
+const fileInput =
   document.getElementById("ticket-file");
 
 const fileName =
   document.getElementById("file-name");
 
-const ticketForm =
-  document.getElementById("ticket-form");
 
-
-ticketFile.addEventListener(
+fileInput.addEventListener(
   "change",
   () => {
 
     const file =
-      ticketFile.files[0];
+      fileInput.files[0];
+
+    if(!file){
+
+      fileName.textContent =
+        "Nessun file selezionato";
+
+      return;
+    }
+
+
+    const maxSize =
+      5 * 1024 * 1024;
+
+
+    if(file.size > maxSize){
+
+      fileName.textContent =
+        "File troppo grande. Massimo 5 MB.";
+
+      fileInput.value =
+        "";
+
+      return;
+    }
+
 
     fileName.textContent =
-      file
-      ?
-      "Allegato selezionato: " + file.name
-      :
-      "";
+      file.name +
+      " (" +
+      formatFileSize(file.size) +
+      ")";
 
   }
 );
+
+
+function formatFileSize(bytes){
+
+  if(bytes < 1024){
+
+    return bytes + " B";
+
+  }
+
+  if(bytes < 1024 * 1024){
+
+    return (
+      (bytes / 1024).toFixed(1) +
+      " KB"
+    );
+
+  }
+
+  return (
+    (bytes / (1024 * 1024)).toFixed(1) +
+    " MB"
+  );
+
+}
+
+
+/* =========================================================
+   INVIO TICKET
+   ========================================================= */
+
+const ticketForm =
+  document.getElementById("ticket-form");
+
+const successBox =
+  document.getElementById("ticket-success");
+
+const errorBox =
+  document.getElementById("ticket-error");
 
 
 ticketForm.addEventListener(
   "submit",
-  (event) => {
+  async event => {
 
     event.preventDefault();
 
-    alert(
-      "Grazie! La tua proposta è stata compilata correttamente. Il salvataggio online dei ticket verrà collegato nella prossima fase."
-    );
 
-    ticketForm.reset();
+    successBox.style.display =
+      "none";
 
-    fileName.textContent = "";
+    errorBox.style.display =
+      "none";
+
+
+    const button =
+      ticketForm.querySelector(
+        ".ticket-submit"
+      );
+
+
+    const name =
+      document
+        .getElementById("ticket-name")
+        .value
+        .trim();
+
+
+    const email =
+      document
+        .getElementById("ticket-email")
+        .value
+        .trim();
+
+
+    const category =
+      document
+        .getElementById("ticket-category")
+        .value;
+
+
+    const title =
+      document
+        .getElementById("ticket-title")
+        .value
+        .trim();
+
+
+    const description =
+      document
+        .getElementById("ticket-description")
+        .value
+        .trim();
+
+
+    const file =
+      fileInput.files[0] || null;
+
+
+    /* CONTROLLO FILE */
+
+    if(file){
+
+      const maxSize =
+        5 * 1024 * 1024;
+
+
+      if(file.size > maxSize){
+
+        showError(
+          "L'allegato supera il limite di 5 MB."
+        );
+
+        return;
+      }
+
+
+      const allowedTypes = [
+
+        "application/pdf",
+
+        "image/jpeg",
+
+        "image/png",
+
+        "image/webp",
+
+        "image/gif"
+
+      ];
+
+
+      if(
+        !allowedTypes.includes(
+          file.type
+        )
+      ){
+
+        showError(
+          "Formato allegato non supportato. Usa un'immagine o un PDF."
+        );
+
+        return;
+      }
+
+    }
+
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "Invio in corso...";
+
+
+    try{
+
+
+      /* =====================================================
+         1. CREAZIONE TICKET
+         ===================================================== */
+
+      const {
+        data,
+        error
+      } = await supabaseClient
+
+        .from("tickets")
+
+        .insert([
+
+          {
+            name: name,
+
+            email: email,
+
+            category: category,
+
+            title: title,
+
+            description: description,
+
+            status: "nuovo",
+
+            page_url:
+              window.location.href
+
+          }
+
+        ])
+
+        .select()
+
+        .single();
+
+
+      if(error){
+
+        console.error(
+          "Errore creazione ticket:",
+          error
+        );
+
+        throw error;
+
+      }
+
+
+      const ticketId =
+        data.id;
+
+
+      let attachmentPath =
+        null;
+
+
+      /* =====================================================
+         2. UPLOAD ALLEGATO
+         ===================================================== */
+
+      if(file){
+
+        const safeFileName =
+          file.name
+            .replace(
+              /[^a-zA-Z0-9._-]/g,
+              "_"
+            );
+
+
+        const filePath =
+          ticketId +
+          "/" +
+          Date.now() +
+          "_" +
+          safeFileName;
+
+
+        const {
+          error: uploadError
+        } = await supabaseClient
+
+          .storage
+
+          .from("ticket-allegati")
+
+          .upload(
+            filePath,
+            file,
+            {
+              cacheControl: "3600",
+              upsert: false
+            }
+          );
+
+
+        if(uploadError){
+
+          console.error(
+            "Errore upload allegato:",
+            uploadError
+          );
+
+          throw new Error(
+            "Il ticket è stato creato, ma l'allegato non è stato caricato."
+          );
+
+        }
+
+
+        attachmentPath =
+          filePath;
+
+
+        /* =================================================
+           3. SALVATAGGIO PERCORSO ALLEGATO
+           ================================================= */
+
+        const {
+          error: updateError
+        } = await supabaseClient
+
+          .from("tickets")
+
+          .update({
+            attachment_path:
+              attachmentPath
+          })
+
+          .eq(
+            "id",
+            ticketId
+          );
+
+
+        if(updateError){
+
+          console.error(
+            "Errore salvataggio allegato:",
+            updateError
+          );
+
+        }
+
+      }
+
+
+      /* =====================================================
+         4. NUMERO TICKET
+         ===================================================== */
+
+      const ticketNumber =
+        String(ticketId)
+          .padStart(
+            4,
+            "0"
+          );
+
+
+      /* =====================================================
+         5. MESSAGGIO SUCCESSO
+         ===================================================== */
+
+      successBox.innerHTML = `
+
+        <strong>
+          Ticket inviato correttamente!
+        </strong>
+
+        <br><br>
+
+        Il tuo numero ticket è:
+
+        <strong>
+          #${ticketNumber}
+        </strong>
+
+        <br><br>
+
+        La richiesta è stata registrata
+        e verrà presa in carico.
+
+      `;
+
+
+      successBox.style.display =
+        "block";
+
+
+      /* RESET */
+
+      ticketForm.reset();
+
+
+      fileName.textContent =
+        "Nessun file selezionato";
+
+
+      /* SCROLL AL MESSAGGIO */
+
+      successBox.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+
+    }catch(error){
+
+      console.error(
+        "Errore ticket:",
+        error
+      );
+
+
+      showError(
+        error.message ||
+        "Non è stato possibile inviare il ticket. Riprova."
+      );
+
+
+    }finally{
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "Apri ticket →";
+
+    }
 
   }
 );
 
 
-/* ANNO */
+/* =========================================================
+   MESSAGGIO ERRORE
+   ========================================================= */
 
-document.getElementById("year").textContent =
+function showError(message){
+
+  errorBox.innerHTML = `
+    <strong>
+      Errore
+    </strong>
+
+    <br><br>
+
+    ${message}
+  `;
+
+  errorBox.style.display =
+    "block";
+
+}
+
+
+/* =========================================================
+   ANNO FOOTER
+   ========================================================= */
+
+document.getElementById(
+  "year"
+).textContent =
   new Date().getFullYear();
 
 
-render();
+/* =========================================================
+   AVVIO
+   ========================================================= */
+
+renderBusinesses();
 
 </script>
 
