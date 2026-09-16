@@ -1,0 +1,14 @@
+MADE IN MAGLIE - VERSIONE FEDELE ALLA GRAFICA DI RIFERIMENTO
+
+Nella stessa cartella di index.html inserisci:
+- logo.png       = il logo originale Made in Maglie
+- hero-maglie.png = la foto ORIGINALE del Comune, senza testi, loghi o sfocature
+
+La foto viene mostrata come immagine a piena larghezza con object-fit: cover.
+Non usare una versione già contenente il testo della grafica.
+
+IMPORTANTE:
+Nel codice, sostituisci INSERISCI_LA_TUA_ANON_KEY con la tua anon/publishable key
+Supabase che stavi già usando nel progetto.
+
+Poi carica index.html + logo.png + hero-maglie.png su GitHub/Vercel.
