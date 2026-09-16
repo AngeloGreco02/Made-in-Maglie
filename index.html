@@ -24,20 +24,26 @@
 <title>Made in Maglie — Scegli locale, vivi Maglie</title>
 
 
+
 <style>
 
 /* =========================================================
-   BASE
+   MADE IN MAGLIE — VISUAL SYSTEM
+   Header/Hero inspired by the supplied reference graphic.
+   The supplied Maglie photo is used as the hero background.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 
 :root{
   --blue:#102f57;
-  --gold:#c59a48;
-  --cream:#f7f3ec;
-  --ink:#162235;
-  --muted:#667085;
+  --navy:#102f57;
+  --gold:#f5b900;
+  --gold-dark:#d99e00;
+  --cream:#fbfaf7;
+  --ink:#17233a;
+  --muted:#68758a;
   --white:#fff;
   --green:#198754;
   --red:#c0392b;
@@ -55,7 +61,7 @@ body{
   margin:0;
   background:var(--cream);
   color:var(--ink);
-  font-family:"DM Sans",sans-serif;
+  font-family:"Poppins",sans-serif;
 }
 
 a{
@@ -72,150 +78,279 @@ textarea{
 
 
 /* =========================================================
-   HEADER
+   HEADER + HERO
    ========================================================= */
 
 .site-header{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
 
-  background:rgba(247,243,236,.96);
+  min-height:108px;
 
-  backdrop-filter:blur(12px);
+  display:grid;
+  grid-template-columns:280px 1fr;
 
-  border-bottom:
-    1px solid rgba(16,47,87,.1);
-
-  display:flex;
   align-items:center;
-  justify-content:space-between;
 
-  padding:12px 5vw;
+  padding:0 5vw;
+
+  background:#fff;
+
+  border-bottom:1px solid rgba(16,47,87,.06);
+
+  box-shadow:0 4px 20px rgba(16,47,87,.06);
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:flex-start;
 
-  font-weight:700;
+  width:max-content;
+
   color:var(--blue);
 }
 
 .brand img{
-  width:52px;
-  height:52px;
-
-  object-fit:cover;
-
-  border-radius:50%;
+  width:205px;
+  height:92px;
 
   display:block;
 
-  box-shadow:0 4px 14px rgba(16,47,87,.10);
+  object-fit:contain;
+  object-position:left center;
+
+  border-radius:0;
+  filter:none;
 }
 
 .nav-links{
   display:flex;
-  gap:24px;
-
+  justify-content:flex-end;
   align-items:center;
 
-  font-weight:600;
+  gap:48px;
 
-  flex-wrap:wrap;
+  font-family:"Poppins",sans-serif;
+  font-size:1rem;
+  font-weight:500;
+
+  white-space:nowrap;
+}
+
+.nav-links a{
+  position:relative;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:44px;
+
+  color:#14213d;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.nav-links a:not(.nav-search)::after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  bottom:1px;
+
+  width:0;
+  height:3px;
+
+  transform:translateX(-50%);
+
+  border-radius:999px;
+
+  background:var(--gold);
+
+  transition:width .2s ease;
 }
 
 .nav-links a:hover{
-  color:var(--gold);
+  color:var(--blue);
 }
 
-.nav-cta{
-  padding:11px 17px;
+.nav-links a:hover::after,
+.nav-links a.active::after{
+  width:34px;
+}
 
-  background:var(--blue);
+.nav-links a.active{
+  font-weight:700;
+}
 
-  color:#fff!important;
+.nav-search{
+  gap:12px;
+
+  min-width:205px;
+  padding:13px 22px;
+
+  background:var(--gold);
 
   border-radius:999px;
+
+  color:#101820!important;
+
+  font-weight:700;
+
+  box-shadow:
+    0 7px 18px rgba(245,185,0,.18);
+}
+
+.nav-search:hover{
+  background:#ffc928;
+  transform:translateY(-1px);
+}
+
+.nav-search::after{
+  display:none!important;
+}
+
+.search-icon{
+  position:relative;
+
+  width:20px;
+  height:20px;
+
+  border:3px solid #101820;
+  border-radius:50%;
+}
+
+.search-icon::after{
+  content:"";
+
+  position:absolute;
+
+  width:8px;
+  height:3px;
+
+  right:-6px;
+  bottom:-3px;
+
+  border-radius:99px;
+
+  background:#101820;
+
+  transform:rotate(45deg);
 }
 
 
 /* =========================================================
-   HERO
+   HERO — FOTO DI MAGLIE COME SFONDO
    ========================================================= */
 
 .hero{
-  max-width:1180px;
+  width:100%;
+  max-width:none;
 
-  margin:auto;
+  min-height:720px;
 
-  padding:88px 5vw 70px;
+  margin:0;
+  padding:0 5vw;
 
-  display:block;
+  display:flex;
+  align-items:center;
 
   position:relative;
-
   overflow:hidden;
+
+  background-image:url("hero-maglie.jpg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,20,42,.78) 0%,
+      rgba(5,20,42,.58) 32%,
+      rgba(5,20,42,.12) 65%,
+      rgba(5,20,42,.02) 100%
+    );
 }
 
 .hero::after{
   content:"";
-  display:block;
-  width:120px;
-  height:3px;
-  margin-top:42px;
-  background:var(--gold);
-  border-radius:99px;
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:-1px;
+
+  height:82px;
+
+  background:var(--cream);
+
+  clip-path:ellipse(65% 100% at 50% 100%);
+}
+
+.hero > div{
+  position:relative;
+  z-index:2;
+
+  width:min(720px, 100%);
+
+  padding:72px 0 105px;
 }
 
 .eyebrow{
   color:var(--gold);
 
   font-weight:700;
-
   letter-spacing:.13em;
-
   font-size:.78rem;
 }
 
-h1,
-h2{
-  font-family:Fraunces,serif;
+.hero h1{
+  font-family:"Poppins",sans-serif;
 
-  color:var(--blue);
+  color:#fff;
 
   line-height:1.02;
-}
 
-h1{
-  font-size:clamp(3rem,7vw,6.4rem);
+  font-size:clamp(3rem,6.2vw,6.2rem);
 
-  max-width:1050px;
+  max-width:900px;
 
   margin:15px 0 25px;
 
-  letter-spacing:-.035em;
+  letter-spacing:-.045em;
+
+  font-weight:800;
 }
 
-h1 em,
-h2 em{
+.hero h1 em{
   color:var(--gold);
-
   font-style:normal;
 }
 
 .hero-intro{
-  font-size:1.12rem;
+  font-size:clamp(1.05rem,1.4vw,1.18rem);
 
   line-height:1.7;
 
-  max-width:780px;
+  max-width:690px;
 
-  color:#4c586b;
+  color:#fff;
 
-  font-size:clamp(1.05rem,1.4vw,1.18rem);
+  text-shadow:0 1px 8px rgba(0,0,0,.2);
 }
 
 .hero-actions{
@@ -232,7 +367,6 @@ h2 em{
   display:inline-flex;
 
   align-items:center;
-
   justify-content:center;
 
   padding:14px 20px;
@@ -247,27 +381,31 @@ h2 em{
 }
 
 .button-primary{
-  background:var(--blue);
-
-  color:#fff;
+  background:var(--gold);
+  color:#101820;
 }
 
 .button-primary:hover{
-  background:#173f73;
+  background:#ffc928;
+  transform:translateY(-2px);
 }
 
 .button-secondary{
-  border:1px solid rgba(16,47,87,.2);
+  border:1px solid rgba(255,255,255,.45);
 
-  color:var(--blue);
+  color:#fff;
 
-  background:#fff;
+  background:rgba(255,255,255,.12);
+
+  backdrop-filter:blur(8px);
 }
 
-
+.button-secondary:hover{
+  background:rgba(255,255,255,.2);
+}
 
 /* =========================================================
-   SEZIONI
+   RESTO DEL SITO
    ========================================================= */
 
 .section-wrap{
@@ -754,12 +892,48 @@ footer .brand{
    RESPONSIVE
    ========================================================= */
 
-@media(max-width:850px){
 
-  .hero{
-    grid-template-columns:1fr;
 
-    padding-top:45px;
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:1000px){
+
+  .site-header{
+    grid-template-columns:190px 1fr;
+    padding:0 4vw;
+  }
+
+  .brand img{
+    width:165px;
+  }
+
+  .nav-links{
+    grid-column:2;
+    gap:25px;
+    font-size:.9rem;
+  }
+
+  .nav-search{
+    min-width:auto;
+    padding:12px 17px;
+  }
+
+  .nav-search span:last-child{
+    display:none;
+  }
+
+  .nav-search{
+    width:48px;
+    height:48px;
+    padding:0;
+  }
+
+  .search-icon{
+    width:18px;
+    height:18px;
   }
 
   .business-grid,
@@ -769,10 +943,6 @@ footer .brand{
 
   .section-heading{
     display:block;
-  }
-
-  .nav-links{
-    gap:12px;
   }
 
   .form-grid{
@@ -785,6 +955,52 @@ footer .brand{
 
 }
 
+@media(max-width:680px){
+
+  .site-header{
+    min-height:82px;
+    grid-template-columns:150px 1fr;
+  }
+
+  .brand img{
+    width:140px;
+    height:70px;
+  }
+
+  .nav-links{
+    gap:10px;
+  }
+
+  .nav-links a:not(.nav-search){
+    display:none;
+  }
+
+  .nav-search{
+    width:46px;
+    height:46px;
+  }
+
+  .hero{
+    min-height:650px;
+    padding:0 6vw;
+    background-position:center center;
+  }
+
+  .hero::before{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5,20,42,.82) 0%,
+        rgba(5,20,42,.58) 55%,
+        rgba(5,20,42,.20) 100%
+      );
+  }
+
+  .hero > div{
+    padding:55px 0 95px;
+  }
+
+}
 
 @media(max-width:560px){
 
@@ -795,19 +1011,6 @@ footer .brand{
 
   footer{
     flex-direction:column;
-  }
-
-  .site-header{
-    padding:10px 4vw;
-  }
-
-  .brand img{
-    width:48px;
-    height:48px;
-  }
-
-  .nav-links{
-    display:none;
   }
 
   .ticket-form{
@@ -833,16 +1036,13 @@ footer .brand{
   <a
     class="brand"
     href="#top"
+    aria-label="Made in Maglie - Home"
   >
 
     <img
       src="logo.png"
-      alt="Logo Made in Maglie"
+      alt="Made in Maglie"
     >
-
-    <span>
-      Made in Maglie
-    </span>
 
   </a>
 
@@ -852,27 +1052,28 @@ footer .brand{
     aria-label="Navigazione principale"
   >
 
+    <a
+      class="active"
+      href="#top"
+    >
+      Home
+    </a>
+
     <a href="#attivita">
       Attività
     </a>
 
-    <a href="#categorie">
-      Categorie
-    </a>
-
-    <a href="#partecipa">
-      Partecipa
-    </a>
-
-    <a href="#suggerisci">
-      Suggerisci
+    <a href="#contatti">
+      Contatti
     </a>
 
     <a
-      class="nav-cta"
-      href="#contatti"
+      class="nav-search"
+      href="#attivita"
+      aria-label="Cerca attività"
     >
-      Contatti
+      <span class="search-icon" aria-hidden="true"></span>
+      <span>Cerca attività</span>
     </a>
 
   </nav>
@@ -896,24 +1097,16 @@ footer .brand{
       LA VETRINA DIGITALE DI MAGLIE
     </p>
 
-
     <h1>
-      Le storie più belle si trovano
-      <em>vicino a te.</em>
+      Maglie, una comunità che
+      <em>fa la differenza.</em>
     </h1>
 
-
     <p class="hero-intro">
-
-      Made in Maglie raccoglie le attività
-      del territorio in un'unica vetrina.
-
-      Cerca un'attività, scegli una categoria
-      e apri direttamente la sua posizione
-      su Google Maps.
-
+      Un unico spazio digitale per scoprire le attività
+      della nostra città. Cerca un'attività, scegli una
+      categoria e raggiungila direttamente su Google Maps.
     </p>
-
 
     <div class="hero-actions">
 
@@ -921,9 +1114,8 @@ footer .brand{
         class="button button-primary"
         href="#attivita"
       >
-        Scopri le attività ↓
+        Scopri le attività →
       </a>
-
 
       <a
         class="button button-secondary"
