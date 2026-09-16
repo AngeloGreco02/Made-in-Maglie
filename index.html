@@ -23,18 +23,13 @@
 
 <title>Made in Maglie — Scegli locale, vivi Maglie</title>
 
-
-
 <style>
 
 /* =========================================================
-   MADE IN MAGLIE — VISUAL SYSTEM
-   Header/Hero inspired by the supplied reference graphic.
-   The supplied Maglie photo is used as the hero background.
+   MADE IN MAGLIE
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 
 :root{
   --blue:#102f57;
@@ -78,7 +73,7 @@ textarea{
 
 
 /* =========================================================
-   HEADER + HERO
+   HEADER
    ========================================================= */
 
 .site-header{
@@ -99,7 +94,8 @@ textarea{
 
   border-bottom:1px solid rgba(16,47,87,.06);
 
-  box-shadow:0 4px 20px rgba(16,47,87,.06);
+  box-shadow:
+    0 4px 20px rgba(16,47,87,.035);
 }
 
 .brand{
@@ -122,17 +118,18 @@ textarea{
   object-position:left center;
 
   border-radius:0;
+
   filter:none;
 }
 
 .nav-links{
   display:flex;
+
   justify-content:flex-end;
   align-items:center;
 
   gap:48px;
 
-  font-family:"Poppins",sans-serif;
   font-size:1rem;
   font-weight:500;
 
@@ -192,6 +189,7 @@ textarea{
   gap:12px;
 
   min-width:205px;
+
   padding:13px 22px;
 
   background:var(--gold);
@@ -208,6 +206,7 @@ textarea{
 
 .nav-search:hover{
   background:#ffc928;
+
   transform:translateY(-1px);
 }
 
@@ -222,6 +221,7 @@ textarea{
   height:20px;
 
   border:3px solid #101820;
+
   border-radius:50%;
 }
 
@@ -245,122 +245,172 @@ textarea{
 
 
 /* =========================================================
-   HERO — FOTO DI MAGLIE COME SFONDO
+   HERO
    ========================================================= */
 
 .hero{
-  width:100%;
-  max-width:none;
-
-  min-height:720px;
-
-  margin:0;
-  padding:0 5vw;
-
-  display:flex;
-  align-items:center;
-
   position:relative;
+
+  width:100%;
+
+  min-height:650px;
+
   overflow:hidden;
 
-  background-image:url("hero-maglie.jpg");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
+  background:#102f57;
+
+  display:flex;
+
+  align-items:center;
 }
 
-.hero::before{
-  content:"";
 
+/*
+   LA FOTO È UNA VERA IMMAGINE.
+   NON viene usato background-size: cover.
+*/
+
+.hero-image{
   position:absolute;
+
   inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  object-position:center center;
+
+  z-index:0;
+
+  display:block;
+}
+
+
+/*
+   Sfumatura separata.
+   Non modifica né sfoca la foto.
+*/
+
+.hero-overlay{
+  position:absolute;
+
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none;
 
   background:
     linear-gradient(
       90deg,
-      rgba(5,20,42,.78) 0%,
-      rgba(5,20,42,.58) 32%,
-      rgba(5,20,42,.12) 65%,
-      rgba(5,20,42,.02) 100%
+      rgba(8,30,58,.90) 0%,
+      rgba(8,30,58,.72) 22%,
+      rgba(8,30,58,.42) 42%,
+      rgba(8,30,58,.12) 63%,
+      rgba(8,30,58,0) 82%
     );
 }
 
-.hero::after{
-  content:"";
 
-  position:absolute;
+/*
+   CONTENUTO HERO
+*/
 
-  left:0;
-  right:0;
-  bottom:-1px;
-
-  height:82px;
-
-  background:var(--cream);
-
-  clip-path:ellipse(65% 100% at 50% 100%);
-}
-
-.hero > div{
+.hero-content{
   position:relative;
+
   z-index:2;
 
-  width:min(720px, 100%);
+  width:100%;
 
-  padding:72px 0 105px;
+  max-width:1280px;
+
+  margin:0 auto;
+
+  padding:
+    70px 5vw
+    90px 5vw;
 }
+
+
+/* piccolo titolo */
 
 .eyebrow{
+  margin:0 0 14px;
+
   color:var(--gold);
 
-  font-weight:700;
-  letter-spacing:.13em;
-  font-size:.78rem;
+  font-weight:800;
+
+  letter-spacing:.10em;
+
+  font-size:.76rem;
+
+  text-transform:uppercase;
 }
 
+
+/* titolo */
+
 .hero h1{
-  font-family:"Poppins",sans-serif;
+  max-width:730px;
+
+  margin:0 0 24px;
 
   color:#fff;
 
-  line-height:1.02;
+  font-family:"Poppins",sans-serif;
 
-  font-size:clamp(3rem,6.2vw,6.2rem);
-
-  max-width:900px;
-
-  margin:15px 0 25px;
-
-  letter-spacing:-.045em;
+  font-size:
+    clamp(3rem,5.6vw,5.8rem);
 
   font-weight:800;
+
+  line-height:.96;
+
+  letter-spacing:-.055em;
 }
 
 .hero h1 em{
   color:var(--gold);
+
   font-style:normal;
 }
 
+
+/* testo */
+
 .hero-intro{
-  font-size:clamp(1.05rem,1.4vw,1.18rem);
+  max-width:620px;
 
-  line-height:1.7;
-
-  max-width:690px;
+  margin:0;
 
   color:#fff;
 
-  text-shadow:0 1px 8px rgba(0,0,0,.2);
+  font-size:
+    clamp(1rem,1.3vw,1.15rem);
+
+  line-height:1.65;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.18);
 }
+
+
+/* pulsanti */
 
 .hero-actions{
   display:flex;
+
+  align-items:center;
 
   gap:12px;
 
   flex-wrap:wrap;
 
-  margin:28px 0;
+  margin-top:30px;
 }
 
 .button{
@@ -369,24 +419,30 @@ textarea{
   align-items:center;
   justify-content:center;
 
-  padding:14px 20px;
+  padding:14px 21px;
 
   border-radius:999px;
 
   font-weight:700;
 
-  transition:.2s;
-
-  box-shadow:0 8px 22px rgba(16,47,87,.08);
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
 }
 
 .button-primary{
   background:var(--gold);
+
   color:#101820;
+
+  box-shadow:
+    0 8px 25px rgba(245,185,0,.25);
 }
 
 .button-primary:hover{
   background:#ffc928;
+
   transform:translateY(-2px);
 }
 
@@ -395,17 +451,47 @@ textarea{
 
   color:#fff;
 
-  background:rgba(255,255,255,.12);
+  background:rgba(255,255,255,.10);
 
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(4px);
 }
 
 .button-secondary:hover{
-  background:rgba(255,255,255,.2);
+  background:rgba(255,255,255,.18);
+
+  transform:translateY(-2px);
 }
 
+
+/*
+   CURVA BIANCA IN FONDO
+*/
+
+.hero::after{
+  content:"";
+
+  position:absolute;
+
+  z-index:3;
+
+  left:-5%;
+
+  bottom:-95px;
+
+  width:110%;
+
+  height:150px;
+
+  background:var(--cream);
+
+  border-radius:50% 50% 0 0 / 100% 100% 0 0;
+
+  pointer-events:none;
+}
+
+
 /* =========================================================
-   RESTO DEL SITO
+   SEZIONI
    ========================================================= */
 
 .section-wrap{
@@ -431,7 +517,24 @@ textarea{
 .section-heading h2{
   margin:0;
 
-  font-size:clamp(2.5rem,5vw,4.5rem);
+  font-family:"Poppins",sans-serif;
+
+  font-size:
+    clamp(2.5rem,5vw,4.5rem);
+
+  line-height:1;
+
+  letter-spacing:-.045em;
+
+  color:var(--blue);
+
+  font-weight:800;
+}
+
+.section-heading h2 em{
+  color:var(--gold-dark);
+
+  font-style:normal;
 }
 
 .section-heading p{
@@ -442,7 +545,7 @@ textarea{
 
 
 /* =========================================================
-   ATTIVITA
+   ATTIVITÀ
    ========================================================= */
 
 .categories{
@@ -475,6 +578,12 @@ textarea{
   font-size:1rem;
 }
 
+.search:focus{
+  box-shadow:
+    0 0 0 3px
+    rgba(245,185,0,.35);
+}
+
 .filters{
   display:flex;
 
@@ -497,6 +606,8 @@ textarea{
   border-radius:999px;
 
   cursor:pointer;
+
+  transition:.2s;
 }
 
 .filter.active,
@@ -504,6 +615,8 @@ textarea{
   background:var(--gold);
 
   border-color:var(--gold);
+
+  color:#101820;
 }
 
 .business-grid{
@@ -530,7 +643,9 @@ textarea{
 
   border-radius:20px;
 
-  transition:transform .2s, box-shadow .2s;
+  transition:
+    transform .2s,
+    box-shadow .2s;
 
   border:1px solid rgba(16,47,87,.07);
 
@@ -539,7 +654,10 @@ textarea{
 }
 
 .business-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 18px 35px rgba(16,47,87,.14);
 }
 
 .badge{
@@ -722,7 +840,7 @@ textarea{
 
   box-shadow:
     0 0 0 3px
-    rgba(197,154,72,.12);
+    rgba(245,185,0,.12);
 }
 
 .form-field textarea{
@@ -782,6 +900,8 @@ textarea{
 
 .ticket-submit:hover{
   background:#173f73;
+
+  transform:translateY(-1px);
 }
 
 .ticket-submit:disabled{
@@ -862,6 +982,10 @@ textarea{
   line-height:1.7;
 }
 
+.contact-section .button-primary{
+  color:#101820;
+}
+
 
 /* =========================================================
    FOOTER
@@ -887,12 +1011,10 @@ footer .brand{
   color:#fff;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-
+footer .brand img{
+  width:130px;
+  height:60px;
+}
 
 
 /* =========================================================
@@ -903,6 +1025,7 @@ footer .brand{
 
   .site-header{
     grid-template-columns:190px 1fr;
+
     padding:0 4vw;
   }
 
@@ -911,29 +1034,15 @@ footer .brand{
   }
 
   .nav-links{
-    grid-column:2;
     gap:25px;
+
     font-size:.9rem;
   }
 
   .nav-search{
     min-width:auto;
+
     padding:12px 17px;
-  }
-
-  .nav-search span:last-child{
-    display:none;
-  }
-
-  .nav-search{
-    width:48px;
-    height:48px;
-    padding:0;
-  }
-
-  .search-icon{
-    width:18px;
-    height:18px;
   }
 
   .business-grid,
@@ -953,13 +1062,28 @@ footer .brand{
     grid-column:auto;
   }
 
+  .hero{
+    min-height:600px;
+  }
+
+  .hero h1{
+    max-width:650px;
+
+    font-size:
+      clamp(3rem,6vw,5rem);
+  }
+
 }
+
 
 @media(max-width:680px){
 
   .site-header{
     min-height:82px;
+
     grid-template-columns:150px 1fr;
+
+    padding:0 20px;
   }
 
   .brand img{
@@ -968,6 +1092,8 @@ footer .brand{
   }
 
   .nav-links{
+    justify-content:flex-end;
+
     gap:10px;
   }
 
@@ -978,29 +1104,84 @@ footer .brand{
   .nav-search{
     width:46px;
     height:46px;
+
+    padding:0;
   }
+
+  .nav-search span:last-child{
+    display:none;
+  }
+
+  .search-icon{
+    width:18px;
+    height:18px;
+  }
+
+
+  /*
+     MOBILE HERO
+  */
 
   .hero{
-    min-height:650px;
-    padding:0 6vw;
-    background-position:center center;
+    min-height:680px;
+
+    align-items:flex-start;
+
+    background:#102f57;
   }
 
-  .hero::before{
+  .hero-image{
+    object-fit:contain;
+
+    object-position:center bottom;
+
+    height:100%;
+  }
+
+  .hero-overlay{
     background:
       linear-gradient(
-        90deg,
-        rgba(5,20,42,.82) 0%,
-        rgba(5,20,42,.58) 55%,
-        rgba(5,20,42,.20) 100%
+        180deg,
+        rgba(8,30,58,.94) 0%,
+        rgba(8,30,58,.72) 34%,
+        rgba(8,30,58,.30) 64%,
+        rgba(8,30,58,.08) 100%
       );
   }
 
-  .hero > div{
-    padding:55px 0 95px;
+  .hero-content{
+    padding:
+      55px 25px
+      100px;
+  }
+
+  .hero h1{
+    max-width:500px;
+
+    font-size:
+      clamp(2.8rem,11vw,4.2rem);
+
+    line-height:.96;
+  }
+
+  .hero-intro{
+    max-width:520px;
+
+    font-size:1rem;
+  }
+
+  .hero-actions{
+    margin-top:25px;
+  }
+
+  .hero::after{
+    bottom:-75px;
+
+    height:110px;
   }
 
 }
+
 
 @media(max-width:560px){
 
@@ -1011,10 +1192,44 @@ footer .brand{
 
   footer{
     flex-direction:column;
+
+    text-align:center;
   }
 
   .ticket-form{
     padding:22px;
+  }
+
+  .hero{
+    min-height:700px;
+  }
+
+  .hero-content{
+    padding-left:22px;
+    padding-right:22px;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+}
+
+
+/* =========================================================
+   RIDUZIONE ANIMAZIONI
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    transition:none!important;
   }
 
 }
@@ -1072,8 +1287,16 @@ footer .brand{
       href="#attivita"
       aria-label="Cerca attività"
     >
-      <span class="search-icon" aria-hidden="true"></span>
-      <span>Cerca attività</span>
+
+      <span
+        class="search-icon"
+        aria-hidden="true"
+      ></span>
+
+      <span>
+        Cerca attività
+      </span>
+
     </a>
 
   </nav>
@@ -1091,22 +1314,48 @@ footer .brand{
 
 <section class="hero">
 
-  <div>
+  <!--
+       IMPORTANTE:
+       questa è la foto completa del Comune.
+       Deve chiamarsi hero-maglie.jpg
+  -->
+
+  <img
+    class="hero-image"
+    src="hero-maglie.jpg"
+    alt="Comune di Maglie"
+  >
+
+
+  <div
+    class="hero-overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <div class="hero-content">
 
     <p class="eyebrow">
       LA VETRINA DIGITALE DI MAGLIE
     </p>
+
 
     <h1>
       Maglie, una comunità che
       <em>fa la differenza.</em>
     </h1>
 
+
     <p class="hero-intro">
-      Un unico spazio digitale per scoprire le attività
-      della nostra città. Cerca un'attività, scegli una
-      categoria e raggiungila direttamente su Google Maps.
+
+      Un unico spazio digitale per scoprire
+      le attività della nostra città.
+
+      Cerca un'attività, scegli una categoria
+      e raggiungila direttamente su Google Maps.
+
     </p>
+
 
     <div class="hero-actions">
 
@@ -1116,6 +1365,7 @@ footer .brand{
       >
         Scopri le attività →
       </a>
+
 
       <a
         class="button button-secondary"
@@ -1133,7 +1383,7 @@ footer .brand{
 
 
 <!-- =====================================================
-     ATTIVITA
+     ATTIVITÀ
      ===================================================== -->
 
 <section
@@ -1202,7 +1452,7 @@ footer .brand{
 
 
 <!-- =====================================================
-     CATEGORIE
+     PROGETTO
      ===================================================== -->
 
 <section
@@ -1401,8 +1651,6 @@ footer .brand{
       <div class="form-grid">
 
 
-        <!-- NOME -->
-
         <div class="form-field">
 
           <label for="ticket-name">
@@ -1422,8 +1670,6 @@ footer .brand{
 
 
 
-        <!-- EMAIL -->
-
         <div class="form-field">
 
           <label for="ticket-email">
@@ -1442,8 +1688,6 @@ footer .brand{
         </div>
 
 
-
-        <!-- CATEGORIA -->
 
         <div class="form-field">
 
@@ -1496,8 +1740,6 @@ footer .brand{
 
 
 
-        <!-- TITOLO -->
-
         <div class="form-field">
 
           <label for="ticket-title">
@@ -1518,8 +1760,6 @@ footer .brand{
 
 
 
-        <!-- DESCRIZIONE -->
-
         <div class="form-field full">
 
           <label for="ticket-description">
@@ -1538,8 +1778,6 @@ footer .brand{
         </div>
 
 
-
-        <!-- ALLEGATO -->
 
         <div class="form-field full">
 
@@ -1584,8 +1822,6 @@ footer .brand{
 
 
 
-      <!-- BOTTONE -->
-
       <button
         type="submit"
         class="ticket-submit"
@@ -1595,8 +1831,6 @@ footer .brand{
 
 
 
-      <!-- SUCCESSO -->
-
       <div
         id="ticket-success"
         class="ticket-success"
@@ -1604,8 +1838,6 @@ footer .brand{
       ></div>
 
 
-
-      <!-- ERRORE -->
 
       <div
         id="ticket-error"
@@ -1665,6 +1897,7 @@ footer .brand{
 
     </p>
 
+
     <a
       class="button button-primary"
       href="https://wa.me/393385940983?text=Ciao%20Made%20in%20Maglie%2C%20vorrei%20avere%20informazioni."
@@ -1697,7 +1930,7 @@ footer .brand{
 
     <img
       src="logo.png"
-      alt=""
+      alt="Made in Maglie"
     >
 
     <span>
@@ -1730,25 +1963,21 @@ footer .brand{
 
 <script>
 
-
 /* =========================================================
-   CONFIGURAZIONE SUPABASE
+   SUPABASE
    ========================================================= */
 
 const SUPABASE_URL =
   "https://mjfciizbtoiruokdiqef.supabase.co";
 
-
 const SUPABASE_KEY =
   "sb_publishable_dqzihDMJlD5uPK7u080DpA_pdE9jKdf";
-
 
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
-
 
 
 /* =========================================================
@@ -1858,7 +2087,6 @@ const businesses = [
 ];
 
 
-
 /* =========================================================
    ATTIVITÀ + FILTRI
    ========================================================= */
@@ -1868,22 +2096,18 @@ const grid =
     "business-grid"
   );
 
-
 const search =
   document.getElementById(
     "search"
   );
-
 
 const filters =
   document.getElementById(
     "filters"
   );
 
-
 let activeCategory =
   "Tutte";
-
 
 const categories =
   [
@@ -1897,6 +2121,9 @@ const categories =
   ];
 
 
+/* =========================================================
+   CREA FILTRI
+   ========================================================= */
 
 filters.innerHTML =
   categories
@@ -1920,7 +2147,6 @@ filters.innerHTML =
     .join("");
 
 
-
 filters
   .querySelectorAll(".filter")
   .forEach(
@@ -1939,15 +2165,12 @@ filters
                 )
             );
 
-
           button.classList.add(
             "active"
           );
 
-
           activeCategory =
             button.dataset.category;
-
 
           renderBusinesses();
 
@@ -1958,6 +2181,9 @@ filters
   );
 
 
+/* =========================================================
+   MOSTRA ATTIVITÀ
+   ========================================================= */
 
 function renderBusinesses(){
 
@@ -2061,16 +2287,14 @@ search.addEventListener(
 );
 
 
-
 /* =========================================================
-   FILE
+   FILE ALLEGATO
    ========================================================= */
 
 const fileInput =
   document.getElementById(
     "ticket-file"
   );
-
 
 const fileName =
   document.getElementById(
@@ -2104,10 +2328,8 @@ fileInput.addEventListener(
       fileName.textContent =
         "File troppo grande. Massimo 5 MB.";
 
-
       fileInput.value =
         "";
-
 
       return;
     }
@@ -2123,7 +2345,6 @@ fileInput.addEventListener(
 
   }
 );
-
 
 
 function formatFileSize(bytes){
@@ -2159,7 +2380,6 @@ function formatFileSize(bytes){
 }
 
 
-
 /* =========================================================
    TICKET
    ========================================================= */
@@ -2169,18 +2389,15 @@ const ticketForm =
     "ticket-form"
   );
 
-
 const successBox =
   document.getElementById(
     "ticket-success"
   );
 
-
 const errorBox =
   document.getElementById(
     "ticket-error"
   );
-
 
 
 ticketForm.addEventListener(
@@ -2192,7 +2409,6 @@ ticketForm.addEventListener(
 
     successBox.style.display =
       "none";
-
 
     errorBox.style.display =
       "none";
@@ -2253,7 +2469,6 @@ ticketForm.addEventListener(
       null;
 
 
-
     /* =====================================================
        CONTROLLO FILE
        ===================================================== */
@@ -2305,7 +2520,6 @@ ticketForm.addEventListener(
     }
 
 
-
     /* =====================================================
        BLOCCO BOTTONE
        ===================================================== */
@@ -2313,17 +2527,15 @@ ticketForm.addEventListener(
     button.disabled =
       true;
 
-
     button.textContent =
       "Invio in corso...";
-
 
 
     try{
 
 
       /* ===================================================
-         GENERAZIONE CODICE TICKET
+         CODICE TICKET
          =================================================== */
 
       const ticketCode =
@@ -2336,7 +2548,6 @@ ticketForm.addEventListener(
           .toString(36)
           .substring(2,7)
           .toUpperCase();
-
 
 
       /* ===================================================
@@ -2367,15 +2578,8 @@ ticketForm.addEventListener(
       }
 
 
-
       /* ===================================================
-         CREAZIONE TICKET
-
-         IMPORTANTE:
-         NON utilizziamo .select()
-
-         In questo modo non serve il permesso
-         SELECT pubblico sulla tabella.
+         CREA TICKET
          =================================================== */
 
       const {
@@ -2432,7 +2636,6 @@ ticketForm.addEventListener(
       }
 
 
-
       /* ===================================================
          UPLOAD ALLEGATO
          =================================================== */
@@ -2485,7 +2688,6 @@ ticketForm.addEventListener(
         }
 
       }
-
 
 
       /* ===================================================
@@ -2555,7 +2757,6 @@ ticketForm.addEventListener(
       button.disabled =
         false;
 
-
       button.textContent =
         "Apri ticket →";
 
@@ -2563,7 +2764,6 @@ ticketForm.addEventListener(
 
   }
 );
-
 
 
 /* =========================================================
@@ -2591,9 +2791,8 @@ function showError(message){
 }
 
 
-
 /* =========================================================
-   SICUREZZA TESTO ERRORE
+   SICUREZZA TESTO
    ========================================================= */
 
 function escapeHtml(text){
@@ -2611,7 +2810,6 @@ function escapeHtml(text){
 }
 
 
-
 /* =========================================================
    ANNO
    ========================================================= */
@@ -2623,13 +2821,11 @@ document.getElementById(
     .getFullYear();
 
 
-
 /* =========================================================
    AVVIO
    ========================================================= */
 
 renderBusinesses();
-
 
 </script>
 
