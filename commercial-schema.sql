@@ -29,14 +29,14 @@ drop policy if exists "Admin can read business requests" on public.business_requ
 create policy "Admin can read business requests"
 on public.business_requests
 for select to authenticated
-using (auth.uid() = 'ADMIN_UUID'::uuid);
+using (auth.uid() = '0ad82c24-b5e9-4962-887d-e3295acc2021'::uuid);
 
 drop policy if exists "Admin can update business requests" on public.business_requests;
 create policy "Admin can update business requests"
 on public.business_requests
 for update to authenticated
-using (auth.uid() = 'ADMIN_UUID'::uuid)
-with check (auth.uid() = 'ADMIN_UUID'::uuid);
+using (auth.uid() = '0ad82c24-b5e9-4962-887d-e3295acc2021'::uuid)
+with check (auth.uid() = '0ad82c24-b5e9-4962-887d-e3295acc2021'::uuid);
 
 create table if not exists public.businesses (
   id uuid primary key default gen_random_uuid(),
@@ -72,8 +72,8 @@ drop policy if exists "Admin can manage businesses" on public.businesses;
 create policy "Admin can manage businesses"
 on public.businesses
 for all to authenticated
-using (auth.uid() = 'ADMIN_UUID'::uuid)
-with check (auth.uid() = 'ADMIN_UUID'::uuid);
+using (auth.uid() = '0ad82c24-b5e9-4962-887d-e3295acc2021'::uuid)
+with check (auth.uid() = '0ad82c24-b5e9-4962-887d-e3295acc2021'::uuid);
 
 -- Dati iniziali corrispondenti alle attività già presenti nel sito.
 insert into public.businesses (name, category, address, status)
