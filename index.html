@@ -985,21 +985,18 @@ let businesses = [
   {name:"Salute e Benessere",category:"Salute e benessere",address:"Maglie, Lecce"}
 ];
 
+function escPublic(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
+
 const grid=document.getElementById("business-grid");
 const input=document.getElementById("business-search");
 const filters=document.getElementById("filters");
 let activeCategory="Tutte";
-
-function escPublic(v){
-  return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
-}
 
 function setupBusinessFilters(){
   const categories=["Tutte",...new Set(businesses.map(b=>b.category).filter(Boolean))];
   filters.innerHTML=categories.map(category=>`
     <button class="filter ${category==="Tutte"?"active":""}" data-category="${escPublic(category)}" type="button">${escPublic(category)}</button>
   `).join("");
-
   filters.querySelectorAll(".filter").forEach(button=>{
     button.addEventListener("click",()=>{
       filters.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
@@ -1010,15 +1007,19 @@ function setupBusinessFilters(){
   });
 }
 
+setupBusinessFilters();
+
 function mapsUrl(b){
-  return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(b.name+" "+(b.address||""));
+  return "https://www.google.com/maps/search/?api=1&query="+
+    encodeURIComponent(b.name+" "+b.address);
 }
 
 function renderBusinesses(){
   const q=input.value.toLowerCase().trim();
+
   const list=businesses.filter(b=>{
     const categoryOK=activeCategory==="Tutte" || b.category===activeCategory;
-    const haystack=(b.name+" "+b.category+" "+(b.address||"")).toLowerCase();
+    const haystack=(b.name+" "+b.category+" "+b.address).toLowerCase();
     return categoryOK && haystack.includes(q);
   });
 
@@ -1027,35 +1028,123 @@ function renderBusinesses(){
       <span class="badge">${escPublic(b.category)}</span>
       <h3>${escPublic(b.name)}</h3>
       <div class="business-address">${escPublic(b.address||"")}</div>
-      <div class="maps-link">Apri su Google Maps <span>↗</span></div>
+      <div class="maps-link">
+        Apri su Google Maps <span>↗</span>
+      </div>
     </a>
-  `).join("") : `<div style="grid-column:1/-1;padding:35px;text-align:center;color:#6e7d95">Nessuna attività trovata.</div>`;
+  `).join("") : `<div style="grid-column:1/-1;padding:35px;text-align:center;color:#6e7d95">
+    Nessuna attività trovata.
+  </div>`;
 }
 
+input.addEventListener("input",renderBusinesses);
+renderBusinesses();
+
+
+
+/* =========================
+   RICHIESTE ATTIVITÀ
+========================= */
+const planButtons=document.querySelectorAll("[data-plan]");
+const planInput=document.getElementById("business-plan");
+const selectedPlan=document.getElementById("selected-plan");
+
+planButtons.forEach(btn=>btn.addEventListener("click",()=>{
+  const plan=btn.dataset.plan||"Free";
+  planInput.value=plan;
+  selectedPlan.textContent="Piano selezionato: "+plan;
+}));
+
+const businessForm=document.getElementById("business-form");
+if(businessForm){
+  businessForm.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const ok=document.getElementById("business-success");
+    const err=document.getElementById("business-error");
+    ok.style.display="none"; err.style.display="none";
+
+    if(!supabaseClient){
+      err.textContent="Il modulo non è ancora collegato a Supabase. La struttura è pronta, ma serve la tabella business_requests.";
+      err.style.display="block";
+      return;
+    }
+
+    const button=document.getElementById("business-submit");
+    button.disabled=true; button.textContent="Invio in corso...";
+
+    try{
+      const payload={
+        business_name:document.getElementById("business-name").value.trim(),
+        category:document.getElementById("business-category").value,
+        owner_name:document.getElementById("business-owner").value.trim(),
+        email:document.getElementById("business-email").value.trim(),
+        phone:document.getElementById("business-phone").value.trim(),
+        address:document.getElementById("business-address").value.trim(),
+        instagram:document.getElementById("business-instagram").value.trim(),
+        facebook:document.getElementById("business-facebook").value.trim(),
+        website:document.getElementById("business-website").value.trim(),
+        description:document.getElementById("business-description").value.trim(),
+        message:document.getElementById("business-message").value.trim(),
+        plan:planInput.value,
+        status:"nuova"
+      };
+
+      const {error:dbError}=await supabaseClient.from("business_requests").insert(payload);
+      if(dbError) throw dbError;
+
+      ok.innerHTML="Richiesta inviata correttamente.<br><br><strong>Made in Maglie la verificherà prima della pubblicazione.</strong>";
+      ok.style.display="block";
+      businessForm.reset();
+      planInput.value="Free";
+      selectedPlan.textContent="Piano selezionato: Free";
+    }catch(ex){
+      console.error(ex);
+      err.textContent="Non è stato possibile inviare la richiesta. Controlla la configurazione Supabase.";
+      err.style.display="block";
+    }finally{
+      button.disabled=false; button.textContent="Invia richiesta →";
+    }
+  });
+}
+
+/* =========================
+   TICKET SUPABASE
+   Mantiene il collegamento al progetto già usato
+========================= */
+
+const SUPABASE_URL="https://mjfciizbtoiruokdiqef.supabase.co";
+
+/*
+  IMPORTANTE:
+  Se nel tuo index precedente avevi già la tua anon/publishable key,
+  incollala qui al posto del valore sotto.
+*/
+const SUPABASE_ANON_KEY="sb_publishable_dqzihDMJlD5uPK7u080DpA_pdE9jKdf";
+
+let supabaseClient=null;
+
+if(window.supabase && SUPABASE_ANON_KEY !== "INSERISCI_LA_TUA_ANON_KEY"){
+  supabaseClient=window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+}
 async function loadPublishedBusinesses(){
   if(!supabaseClient)return;
   const {data,error}=await supabaseClient.from("businesses").select("name,category,address,phone,website,instagram,facebook,description,status,featured,package").eq("status","published").order("featured",{ascending:false}).order("name");
   if(error){
     console.warn("Directory Supabase non disponibile, uso elenco locale:",error.message);
-    setupBusinessFilters();
-    renderBusinesses();
     return;
   }
   if(data && data.length){
     businesses=data;
+    activeCategory="Tutte";
+    setupBusinessFilters();
+    renderBusinesses();
   }
-  setupBusinessFilters();
-  renderBusinesses();
 }
 
-input.addEventListener("input",renderBusinesses);
-setupBusinessFilters();
-renderBusinesses();
-base.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
-}
+loadPublishedBusinesses();
 
 const form=document.getElementById("ticket-form");
 const success=document.getElementById("ticket-success");
