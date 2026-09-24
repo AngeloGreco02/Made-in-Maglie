@@ -609,6 +609,38 @@ button,input,select,textarea{font:inherit}
   .ticket{padding:22px}
   .footer{flex-direction:column;text-align:center}
 }
+
+/* =========================
+   BUSINESS / PUBBLICITA'
+========================= */
+.business-hero{
+  background:var(--blue);
+  color:#fff;
+}
+.business-hero .section{padding-top:82px;padding-bottom:82px}
+.business-hero h2{color:#fff}
+.business-kicker{color:var(--yellow);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.business-intro{max-width:680px;color:#dce5f0;font-size:17px;line-height:1.6}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.price-card{background:#fff;border:1px solid #e0e5ec;border-radius:22px;padding:25px;color:var(--blue);position:relative;box-shadow:0 8px 28px rgba(16,47,87,.07)}
+.price-card.featured{border:2px solid var(--yellow);transform:translateY(-7px)}
+.price-card .mini{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase}
+.price-card h3{font-size:23px;margin:9px 0 5px}
+.price{font-size:35px;font-weight:800;letter-spacing:-.04em}
+.price small{font-size:13px;font-weight:500;color:var(--muted)}
+.price-card ul{list-style:none;padding:0;margin:20px 0;display:grid;gap:9px;color:#52647d;font-size:14px}
+.price-card li::before{content:"✓";color:#c58e00;font-weight:800;margin-right:8px}
+.price-card .btn{width:100%;min-height:48px}
+.launch-note{display:inline-flex;margin-top:20px;padding:8px 13px;border-radius:999px;background:rgba(248,185,0,.14);color:var(--yellow);font-size:13px;font-weight:700}
+.business-form-wrap{background:#f0ede6}
+.business-form{max-width:1050px}
+.business-form .form-grid{grid-template-columns:1fr 1fr}
+.checkbox-row{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.45}
+.checkbox-row input{width:auto;margin-top:3px}
+.selected-plan{background:#f7f1df;border-radius:14px;padding:14px;color:var(--blue);font-weight:800;margin-bottom:18px}
+@media(max-width:1100px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:none}.business-form .form-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -623,6 +655,7 @@ button,input,select,textarea{font:inherit}
     <a class="active" href="#home">Home</a>
     <a href="#attivita">Attività</a>
     <a href="#contatti">Contatti</a>
+    <a href="#pubblicita">Per le attività</a>
     <a class="search-button" href="#attivita">
       <span class="search-icon" aria-hidden="true"></span>
       <span>Cerca attività</span>
@@ -702,6 +735,94 @@ button,input,select,textarea{font:inherit}
   </div>
 </section>
 
+
+
+<section id="pubblicita" class="business-hero">
+  <div class="section">
+    <p class="business-kicker">HAI UN'ATTIVITÀ A MAGLIE?</p>
+    <h2 class="big-title">Entra nella<br>vetrina <span class="yellow">digitale.</span></h2>
+    <p class="business-intro">
+      Inserisci gratuitamente la tua attività nella directory di Made in Maglie.
+      Se vuoi anche promuoverla sui nostri canali, puoi scegliere uno dei pacchetti
+      di lancio. Siamo all'inizio: niente prezzi gonfiati da multinazionale con tre ascensori.
+    </p>
+    <span class="launch-note">🚀 Prezzi di lancio</span>
+
+    <div class="pricing-grid">
+      <article class="price-card">
+        <span class="mini">Presenza</span>
+        <h3>Free</h3>
+        <div class="price">€0</div>
+        <ul><li>Scheda attività sul sito</li><li>Categoria e indirizzo</li><li>Telefono e social</li><li>Presenza nella directory</li></ul>
+        <a class="btn btn-outline" style="color:var(--blue);border-color:var(--blue)" href="#richiesta-attivita" data-plan="Free">Entra gratis →</a>
+      </article>
+
+      <article class="price-card">
+        <span class="mini">Visibilità</span>
+        <h3>Start</h3>
+        <div class="price">€5 <small>/ pubblicazione</small></div>
+        <ul><li>1 pubblicazione Instagram</li><li>Presentazione dell'attività</li><li>Condivisione nella pagina</li><li>Prezzo di lancio</li></ul>
+        <a class="btn btn-yellow" href="#richiesta-attivita" data-plan="Start">Richiedi →</a>
+      </article>
+
+      <article class="price-card featured">
+        <span class="mini">Più richiesto</span>
+        <h3>Social</h3>
+        <div class="price">€8 <small>/ campagna</small></div>
+        <ul><li>Post Instagram</li><li>2 Stories</li><li>Call to action verso l'attività</li><li>Prezzo di lancio</li></ul>
+        <a class="btn btn-yellow" href="#richiesta-attivita" data-plan="Social">Richiedi →</a>
+      </article>
+
+      <article class="price-card">
+        <span class="mini">Video</span>
+        <h3>Reel</h3>
+        <div class="price">€12 <small>/ campagna</small></div>
+        <ul><li>Reel promozionale</li><li>Stories di supporto</li><li>Testo promozionale</li><li>Prezzo di lancio</li></ul>
+        <a class="btn btn-yellow" href="#richiesta-attivita" data-plan="Reel">Richiedi →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="richiesta-attivita" class="business-form-wrap">
+  <div class="section">
+    <p class="eyebrow">RICHIEDI LA PRESENZA</p>
+    <div class="activity-heading">
+      <h2 class="big-title">Porta la tua attività<br><span class="yellow">su Made in Maglie.</span></h2>
+      <p>Compila il modulo. La richiesta viene verificata prima della pubblicazione. L'inserimento gratuito non comporta automaticamente una pubblicazione sponsorizzata.</p>
+    </div>
+
+    <form id="business-form" class="ticket business-form">
+      <div id="selected-plan" class="selected-plan">Piano selezionato: Free</div>
+      <input type="hidden" id="business-plan" value="Free">
+
+      <div class="form-grid">
+        <div class="field"><label for="business-name">Nome attività *</label><input id="business-name" required maxlength="120"></div>
+        <div class="field"><label for="business-category">Categoria *</label>
+          <select id="business-category" required>
+            <option value="">Seleziona</option><option>Gusto e sapori</option><option>Moda e stile</option><option>Servizi</option><option>Salute e benessere</option><option>Arte e artigianato</option><option>Ospitalità</option><option>Sport e tempo libero</option><option>Altro</option>
+          </select>
+        </div>
+        <div class="field"><label for="business-owner">Nome referente *</label><input id="business-owner" required maxlength="100"></div>
+        <div class="field"><label for="business-email">Email *</label><input id="business-email" type="email" required maxlength="150"></div>
+        <div class="field"><label for="business-phone">Telefono *</label><input id="business-phone" required maxlength="30"></div>
+        <div class="field"><label for="business-address">Indirizzo *</label><input id="business-address" required maxlength="200"></div>
+        <div class="field"><label for="business-instagram">Instagram</label><input id="business-instagram" placeholder="@nomeattivita" maxlength="150"></div>
+        <div class="field"><label for="business-facebook">Facebook</label><input id="business-facebook" maxlength="200"></div>
+        <div class="field"><label for="business-website">Sito web</label><input id="business-website" type="url" maxlength="250"></div>
+        <div class="field full"><label for="business-description">Descrizione *</label><textarea id="business-description" required maxlength="1000" placeholder="Racconta brevemente la tua attività..."></textarea></div>
+        <div class="field full"><label for="business-message">Messaggio / richiesta</label><textarea id="business-message" maxlength="1500" placeholder="Indica eventuali esigenze per la pubblicazione."></textarea></div>
+        <div class="field full">
+          <label class="checkbox-row"><input id="business-consent" type="checkbox" required><span>Confermo di essere autorizzato a rappresentare l'attività e autorizzo Made in Maglie a utilizzare i dati forniti per valutare e gestire questa richiesta.</span></label>
+        </div>
+      </div>
+
+      <button id="business-submit" type="submit">Invia richiesta →</button>
+      <div id="business-success" class="notice success"></div>
+      <div id="business-error" class="notice error"></div>
+    </form>
+  </div>
+</section>
 
 <section id="partecipa" class="dark-section">
   <div class="section split">
@@ -918,6 +1039,72 @@ function renderBusinesses(){
 input.addEventListener("input",renderBusinesses);
 renderBusinesses();
 
+
+
+/* =========================
+   RICHIESTE ATTIVITÀ
+========================= */
+const planButtons=document.querySelectorAll("[data-plan]");
+const planInput=document.getElementById("business-plan");
+const selectedPlan=document.getElementById("selected-plan");
+
+planButtons.forEach(btn=>btn.addEventListener("click",()=>{
+  const plan=btn.dataset.plan||"Free";
+  planInput.value=plan;
+  selectedPlan.textContent="Piano selezionato: "+plan;
+}));
+
+const businessForm=document.getElementById("business-form");
+if(businessForm){
+  businessForm.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const ok=document.getElementById("business-success");
+    const err=document.getElementById("business-error");
+    ok.style.display="none"; err.style.display="none";
+
+    if(!supabaseClient){
+      err.textContent="Il modulo non è ancora collegato a Supabase. La struttura è pronta, ma serve la tabella business_requests.";
+      err.style.display="block";
+      return;
+    }
+
+    const button=document.getElementById("business-submit");
+    button.disabled=true; button.textContent="Invio in corso...";
+
+    try{
+      const payload={
+        business_name:document.getElementById("business-name").value.trim(),
+        category:document.getElementById("business-category").value,
+        owner_name:document.getElementById("business-owner").value.trim(),
+        email:document.getElementById("business-email").value.trim(),
+        phone:document.getElementById("business-phone").value.trim(),
+        address:document.getElementById("business-address").value.trim(),
+        instagram:document.getElementById("business-instagram").value.trim(),
+        facebook:document.getElementById("business-facebook").value.trim(),
+        website:document.getElementById("business-website").value.trim(),
+        description:document.getElementById("business-description").value.trim(),
+        message:document.getElementById("business-message").value.trim(),
+        plan:planInput.value,
+        status:"nuova"
+      };
+
+      const {error:dbError}=await supabaseClient.from("business_requests").insert(payload);
+      if(dbError) throw dbError;
+
+      ok.innerHTML="Richiesta inviata correttamente.<br><br><strong>Made in Maglie la verificherà prima della pubblicazione.</strong>";
+      ok.style.display="block";
+      businessForm.reset();
+      planInput.value="Free";
+      selectedPlan.textContent="Piano selezionato: Free";
+    }catch(ex){
+      console.error(ex);
+      err.textContent="Non è stato possibile inviare la richiesta. Controlla la configurazione Supabase.";
+      err.style.display="block";
+    }finally{
+      button.disabled=false; button.textContent="Invia richiesta →";
+    }
+  });
+}
 
 /* =========================
    TICKET SUPABASE
