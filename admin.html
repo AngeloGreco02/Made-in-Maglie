@@ -53,7 +53,7 @@ input,select{width:100%;padding:13px;border:1px solid var(--border);border-radiu
 #newTicketNotification strong{font-size:16px}
 #newTicketNotification span{font-size:13px;opacity:.9}
 @keyframes ticketNotification{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:800px){.toolbar,.stats{grid-template-columns:1fr}.ticket-top{flex-direction:column}header{padding:15px}main{padding:18px 12px}}
+@media(max-width:800px){.toolbar,.stats{grid-template-columns:1fr}.ticket-top{flex-direction:column}header{padding:15px}main{padding:18px 12px}.tabs{overflow:auto}.business-grid{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -78,6 +78,11 @@ input,select{width:100%;padding:13px;border:1px solid var(--border);border-radiu
 
 <section id="adminSection" class="hidden">
   <div id="realtimeStatus" class="realtime"><span class="dot"></span><span>Connessione Realtime...</span></div>
+  <div class="tabs" style="display:flex;gap:10px;margin:0 0 20px;flex-wrap:wrap">
+    <button type="button" class="tab-btn" data-tab="tickets-panel" style="background:var(--blue);color:#fff">🎫 Ticket</button>
+    <button type="button" class="tab-btn" data-tab="requests-panel" style="background:#fff;color:var(--blue);border:1px solid var(--border)">🏪 Richieste attività</button>
+    <button type="button" class="tab-btn" data-tab="businesses-panel" style="background:#fff;color:var(--blue);border:1px solid var(--border)">📋 Attività pubblicate</button>
+  </div>
 
   <div class="stats">
     <div class="stat"><strong id="totalCount">0</strong><span>Totale ticket</span></div>
@@ -86,7 +91,7 @@ input,select{width:100%;padding:13px;border:1px solid var(--border);border-radiu
     <div class="stat"><strong id="doneCount">0</strong><span>Completati</span></div>
   </div>
 
-  <div class="panel">
+  <div id="tickets-panel" class="panel tab-panel">
     <h2>Ticket</h2>
     <p class="sub">Gestisci le richieste ricevute dal sito.</p>
 
@@ -106,6 +111,39 @@ input,select{width:100%;padding:13px;border:1px solid var(--border);border-radiu
     <div id="ticketList" class="tickets">
       <div class="loading">Caricamento ticket...</div>
     </div>
+  </div>
+
+  <div id="requests-panel" class="panel tab-panel hidden" style="margin-top:20px">
+    <h2>Richieste attività</h2>
+    <p class="sub">Le attività compilano il modulo sul sito. Da qui puoi contattarle, approvarle e pubblicarle.</p>
+    <div class="toolbar">
+      <input id="requestSearch" type="search" placeholder="Cerca attività, referente, email...">
+      <select id="requestFilter">
+        <option value="">Tutti gli stati</option>
+        <option value="nuova">Nuove</option>
+        <option value="contattata">Contattate</option>
+        <option value="approvata">Approvate</option>
+        <option value="rifiutata">Rifiutate</option>
+      </select>
+      <button id="refreshRequestsBtn" type="button">↻ Aggiorna</button>
+    </div>
+    <div id="requestList" class="tickets"><div class="loading">Caricamento richieste...</div></div>
+  </div>
+
+  <div id="businesses-panel" class="panel tab-panel hidden" style="margin-top:20px">
+    <h2>Attività pubblicate</h2>
+    <p class="sub">Gestisci ciò che compare nella vetrina pubblica di Made in Maglie.</p>
+    <div class="toolbar">
+      <input id="businessSearch" type="search" placeholder="Cerca attività o categoria...">
+      <select id="businessStatusFilter">
+        <option value="published">Pubblicate</option>
+        <option value="draft">Bozze</option>
+        <option value="archived">Archiviate</option>
+        <option value="">Tutte</option>
+      </select>
+      <button id="refreshBusinessesBtn" type="button">↻ Aggiorna</button>
+    </div>
+    <div id="businessList" class="tickets"><div class="loading">Caricamento attività...</div></div>
   </div>
 </section>
 </main>
@@ -129,7 +167,10 @@ const refreshBtn=document.getElementById("refreshBtn");
 const realtimeStatus=document.getElementById("realtimeStatus");
 
 let tickets=[];
+let businessRequests=[];
+let businesses=[];
 let realtimeChannel=null;
+let businessRealtimeChannel=null;
 let loadingTickets=false;
 
 function esc(v){
@@ -233,6 +274,130 @@ function render(){
   });
 }
 
+
+function requestStatusLabel(s){
+  return ({nuova:"Nuova",contattata:"Contattata",approvata:"Approvata",rifiutata:"Rifiutata"})[s]||"Nuova";
+}
+
+async function loadBusinessRequests(){
+  const box=document.getElementById("requestList");
+  box.innerHTML='<div class="loading">Caricamento richieste...</div>';
+  const {data,error}=await supabaseClient.from("business_requests").select("*").order("created_at",{ascending:false});
+  if(error){
+    box.innerHTML=`<div class="error" style="display:block">Errore: ${esc(error.message)}</div>`;
+    return;
+  }
+  businessRequests=data||[];
+  renderBusinessRequests();
+}
+
+function renderBusinessRequests(){
+  const q=(document.getElementById("requestSearch").value||"").trim().toLowerCase();
+  const f=document.getElementById("requestFilter").value;
+  const list=businessRequests.filter(r=>{
+    const hay=[r.business_name,r.owner_name,r.email,r.phone,r.category,r.plan,r.description].join(" ").toLowerCase();
+    return (!q||hay.includes(q))&&(!f||r.status===f);
+  });
+  const box=document.getElementById("requestList");
+  if(!list.length){box.innerHTML='<div class="empty">Nessuna richiesta trovata.</div>';return;}
+  box.innerHTML=list.map(r=>`
+    <article class="ticket">
+      <div class="ticket-top"><div><div class="ticket-code">RICHIESTA #${esc(String(r.id).slice(0,8).toUpperCase())}</div><div class="ticket-title">${esc(r.business_name)}</div></div><span class="status ${esc(r.status||"nuova")}">${requestStatusLabel(r.status)}</span></div>
+      <div class="meta"><strong>Referente:</strong> ${esc(r.owner_name)} · ${esc(r.email)} · ${esc(r.phone)}<br><strong>Categoria:</strong> ${esc(r.category)} · <strong>Piano:</strong> ${esc(r.plan)}<br><strong>Indirizzo:</strong> ${esc(r.address)}<br>Ricevuta: ${esc(date(r.created_at))}</div>
+      <div class="description"><strong>Descrizione</strong><br>${esc(r.description)}${r.message?'<br><br><strong>Messaggio</strong><br>'+esc(r.message):""}</div>
+      <div class="actions">
+        <select class="request-status-select" data-id="${esc(r.id)}">
+          <option value="nuova" ${r.status==="nuova"?"selected":""}>Nuova</option>
+          <option value="contattata" ${r.status==="contattata"?"selected":""}>Contattata</option>
+          <option value="approvata" ${r.status==="approvata"?"selected":""}>Approvata</option>
+          <option value="rifiutata" ${r.status==="rifiutata"?"selected":""}>Rifiutata</option>
+        </select>
+        <button class="attachment" data-approve="${esc(r.id)}">✓ Approva e pubblica</button>
+        <a class="page-link" href="mailto:${encodeURIComponent(r.email)}?subject=Made%20in%20Maglie%20-%20richiesta%20attività" >✉ Email</a>
+        <a class="page-link" href="tel:${esc(r.phone)}">☎ Chiama</a>
+      </div>
+    </article>
+  `).join("");
+
+  document.querySelectorAll(".request-status-select").forEach(el=>el.addEventListener("change",()=>updateBusinessRequestStatus(el.dataset.id,el.value)));
+  document.querySelectorAll("[data-approve]").forEach(el=>el.addEventListener("click",()=>approveBusinessRequest(el.dataset.approve)));
+}
+
+async function updateBusinessRequestStatus(id,status){
+  const {error}=await supabaseClient.from("business_requests").update({status}).eq("id",id);
+  if(error){alert("Impossibile aggiornare la richiesta: "+error.message);return;}
+  const r=businessRequests.find(x=>String(x.id)===String(id)); if(r)r.status=status;
+  renderBusinessRequests();
+}
+
+function slugify(v){
+  return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70);
+}
+
+async function approveBusinessRequest(id){
+  const r=businessRequests.find(x=>String(x.id)===String(id));
+  if(!r)return;
+  if(!confirm("Pubblicare "+r.business_name+"" nella vetrina?"))return;
+
+  const slug=slugify(r.business_name)+"-"+String(Date.now()).slice(-6);
+  const payload={
+    name:r.business_name,slug,category:r.category,address:r.address,phone:r.phone,
+    website:r.website||null,instagram:r.instagram||null,facebook:r.facebook||null,
+    description:r.description||null,status:"published",featured:false,package:r.plan||"Free"
+  };
+  const {error:insertError}=await supabaseClient.from("businesses").insert(payload);
+  if(insertError){alert("Impossibile pubblicare l'attività: "+insertError.message);return;}
+  const {error:updateError}=await supabaseClient.from("business_requests").update({status:"approvata"}).eq("id",id);
+  if(updateError){alert("Attività pubblicata, ma lo stato della richiesta non è stato aggiornato: "+updateError.message);}
+  await loadBusinessRequests();
+  await loadBusinesses();
+  alert("Attività pubblicata correttamente.");
+}
+
+async function loadBusinesses(){
+  const box=document.getElementById("businessList");
+  box.innerHTML='<div class="loading">Caricamento attività...</div>';
+  const {data,error}=await supabaseClient.from("businesses").select("*").order("created_at",{ascending:false});
+  if(error){box.innerHTML=`<div class="error" style="display:block">Errore: ${esc(error.message)}</div>`;return;}
+  businesses=data||[];
+  renderBusinesses();
+}
+
+function renderBusinesses(){
+  const q=(document.getElementById("businessSearch").value||"").trim().toLowerCase();
+  const f=document.getElementById("businessStatusFilter").value;
+  const list=businesses.filter(b=>{
+    const hay=[b.name,b.category,b.address,b.package,b.description].join(" ").toLowerCase();
+    return (!q||hay.includes(q))&&(!f||b.status===f);
+  });
+  const box=document.getElementById("businessList");
+  if(!list.length){box.innerHTML='<div class="empty">Nessuna attività trovata.</div>';return;}
+  box.innerHTML=list.map(b=>`
+    <article class="ticket">
+      <div class="ticket-top"><div><div class="ticket-code">${esc((b.package||"Free").toUpperCase())}</div><div class="ticket-title">${esc(b.name)}</div></div><span class="status ${b.status==="published"?"completato":"archiviato"}">${esc(b.status)}</span></div>
+      <div class="meta"><strong>Categoria:</strong> ${esc(b.category)}<br><strong>Indirizzo:</strong> ${esc(b.address||"")}<br><strong>Pacchetto:</strong> ${esc(b.package||"Free")}</div>
+      <div class="description">${esc(b.description||"Nessuna descrizione.")}</div>
+      <div class="actions">
+        <select class="business-status-select" data-id="${esc(b.id)}">
+          <option value="published" ${b.status==="published"?"selected":""}>Pubblicata</option>
+          <option value="draft" ${b.status==="draft"?"selected":""}>Bozza</option>
+          <option value="archived" ${b.status==="archived"?"selected":""}>Archiviata</option>
+        </select>
+        <a class="page-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((b.name||"")+" "+(b.address||""))}" target="_blank" rel="noopener">📍 Maps</a>
+        ${b.website?`<a class="page-link" href="${esc(b.website)}" target="_blank" rel="noopener">🌐 Sito</a>`:""}
+      </div>
+    </article>
+  `).join("");
+  document.querySelectorAll(".business-status-select").forEach(el=>el.addEventListener("change",()=>updateBusinessStatus(el.dataset.id,el.value)));
+}
+
+async function updateBusinessStatus(id,status){
+  const {error}=await supabaseClient.from("businesses").update({status,updated_at:new Date().toISOString()}).eq("id",id);
+  if(error){alert("Impossibile aggiornare lo stato: "+error.message);return;}
+  const b=businesses.find(x=>String(x.id)===String(id)); if(b)b.status=status;
+  renderBusinesses();
+}
+
 async function loadTickets(){
   if(loadingTickets)return;
   loadingTickets=true;
@@ -314,6 +479,31 @@ function showNewTicketNotification(){
   },5000);
 }
 
+
+function startBusinessRealtime(){
+  if(businessRealtimeChannel){
+    supabaseClient.removeChannel(businessRealtimeChannel);
+    businessRealtimeChannel=null;
+  }
+  businessRealtimeChannel=supabaseClient.channel("admin-businesses-"+Date.now())
+    .on("postgres_changes",{event:"*",schema:"public",table:"business_requests"},async payload=>{
+      await loadBusinessRequests();
+      if(payload.eventType==="INSERT")showNewBusinessNotification();
+    })
+    .on("postgres_changes",{event:"*",schema:"public",table:"businesses"},async()=>{
+      await loadBusinesses();
+    })
+    .subscribe();
+}
+
+function showNewBusinessNotification(){
+  const old=document.getElementById("newBusinessNotification"); if(old)old.remove();
+  const n=document.createElement("div");
+  n.id="newBusinessNotification"; n.style.cssText="position:fixed;top:82px;right:25px;z-index:9999;background:#c59a48;color:#fff;padding:16px 20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:340px";
+  n.innerHTML="🏪 <strong>Nuova richiesta attività</strong><br><span style='font-size:13px'>La richiesta è stata aggiunta all'admin.</span>";
+  document.body.appendChild(n); setTimeout(()=>n.remove(),5000);
+}
+
 function startRealtime(){
   if(realtimeChannel){
     supabaseClient.removeChannel(realtimeChannel);
@@ -361,7 +551,10 @@ function showAdmin(){
   adminSection.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
   loadTickets();
+  loadBusinessRequests();
+  loadBusinesses();
   startRealtime();
+  startBusinessRealtime();
 }
 
 function showLogin(){
@@ -372,6 +565,10 @@ function showLogin(){
   if(realtimeChannel){
     supabaseClient.removeChannel(realtimeChannel);
     realtimeChannel=null;
+  }
+  if(businessRealtimeChannel){
+    supabaseClient.removeChannel(businessRealtimeChannel);
+    businessRealtimeChannel=null;
   }
 }
 
@@ -401,6 +598,21 @@ logoutBtn.addEventListener("click",async()=>{
 refreshBtn.addEventListener("click",loadTickets);
 searchInput.addEventListener("input",render);
 filterStatus.addEventListener("change",render);
+
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab-panel").forEach(p=>p.classList.add("hidden"));
+    document.getElementById(btn.dataset.tab).classList.remove("hidden");
+    document.querySelectorAll(".tab-btn").forEach(x=>{x.style.background="#fff";x.style.color="var(--blue)"});
+    btn.style.background="var(--blue)";btn.style.color="#fff";
+  });
+});
+document.getElementById("requestSearch").addEventListener("input",renderBusinessRequests);
+document.getElementById("requestFilter").addEventListener("change",renderBusinessRequests);
+document.getElementById("refreshRequestsBtn").addEventListener("click",loadBusinessRequests);
+document.getElementById("businessSearch").addEventListener("input",renderBusinesses);
+document.getElementById("businessStatusFilter").addEventListener("change",renderBusinesses);
+document.getElementById("refreshBusinessesBtn").addEventListener("click",loadBusinesses);
 
 supabaseClient.auth.onAuthStateChange((_event,session)=>{
   if(session){
