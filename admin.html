@@ -337,7 +337,7 @@ function slugify(v){
 async function approveBusinessRequest(id){
   const r=businessRequests.find(x=>String(x.id)===String(id));
   if(!r)return;
-  if(!confirm("Pubblicare "+r.business_name+"" nella vetrina?"))return;
+  if(!confirm("Pubblicare \""+r.business_name+"\" nella vetrina?"))return;
 
   const slug=slugify(r.business_name)+"-"+String(Date.now()).slice(-6);
   const payload={
